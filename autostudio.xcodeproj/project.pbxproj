@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,9 +27,28 @@
 		412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323425E13161006E4749 /* CoordinatorFactory.swift */; };
 		412E323925E13297006E4749 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323825E13297006E4749 /* ApplicationCoordinator.swift */; };
 		412E323D25E134CF006E4749 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323C25E134CF006E4749 /* ViewControllerExt.swift */; };
+		412E324B25E1460B006E4749 /* ClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E324A25E1460B006E4749 /* ClientType.swift */; };
+		412E324E25E14615006E4749 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E324D25E14615006E4749 /* Client.swift */; };
+		412E325125E14D32006E4749 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325025E14D32006E4749 /* NetworkService.swift */; };
+		412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325425E14D66006E4749 /* NetworkServiceType.swift */; };
+		412E325825E14DAF006E4749 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325725E14DAF006E4749 /* EndpointType.swift */; };
+		412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325B25E14DE7006E4749 /* HTTPMethods.swift */; };
+		412E326125E14E33006E4749 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E326025E14E33006E4749 /* Network.swift */; };
+		412E326725E14ED2006E4749 /* ClientTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E326625E14ED2006E4749 /* ClientTableViewModel.swift */; };
+		412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E326E25E14EF7006E4749 /* ClientTableService.swift */; };
+		412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E327225E14F17006E4749 /* ClientTableServiceType.swift */; };
+		412E327725E1509F006E4749 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E327625E1509F006E4749 /* Endpoint.swift */; };
+		412E327C25E150D2006E4749 /* ClientEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E327B25E150D2006E4749 /* ClientEndpoints.swift */; };
+		412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E327E25E171E2006E4749 /* ClientsTableViewModelType.swift */; };
+		412E328225E17368006E4749 /* ClientCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328125E17368006E4749 /* ClientCellViewModel.swift */; };
+		412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328425E173A9006E4749 /* ClientCellViewModelType.swift */; };
+		412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328925E17432006E4749 /* ClientTableViewCell.swift */; };
+		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.debug.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.debug.xcconfig"; sourceTree = "<group>"; };
+		3CF18673E694461148514366 /* Pods_autostudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autostudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E31DE25E12B89006E4749 /* autostudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autostudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E31E125E12B89006E4749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412E31E325E12B89006E4749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +71,23 @@
 		412E323425E13161006E4749 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		412E323825E13297006E4749 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		412E323C25E134CF006E4749 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		412E324A25E1460B006E4749 /* ClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientType.swift; sourceTree = "<group>"; };
+		412E324D25E14615006E4749 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		412E325025E14D32006E4749 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		412E325425E14D66006E4749 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
+		412E325725E14DAF006E4749 /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
+		412E325B25E14DE7006E4749 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
+		412E326025E14E33006E4749 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		412E326625E14ED2006E4749 /* ClientTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewModel.swift; sourceTree = "<group>"; };
+		412E326E25E14EF7006E4749 /* ClientTableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableService.swift; sourceTree = "<group>"; };
+		412E327225E14F17006E4749 /* ClientTableServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableServiceType.swift; sourceTree = "<group>"; };
+		412E327625E1509F006E4749 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		412E327B25E150D2006E4749 /* ClientEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientEndpoints.swift; sourceTree = "<group>"; };
+		412E327E25E171E2006E4749 /* ClientsTableViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsTableViewModelType.swift; sourceTree = "<group>"; };
+		412E328125E17368006E4749 /* ClientCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModel.swift; sourceTree = "<group>"; };
+		412E328425E173A9006E4749 /* ClientCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModelType.swift; sourceTree = "<group>"; };
+		412E328925E17432006E4749 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +107,8 @@
 			children = (
 				412E31E025E12B89006E4749 /* autostudio */,
 				412E31DF25E12B89006E4749 /* Products */,
+				6B1B3C0C42301A01B9324E4A /* Pods */,
+				AEB76BD02FF73C1F8B3192B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +123,11 @@
 		412E31E025E12B89006E4749 /* autostudio */ = {
 			isa = PBXGroup;
 			children = (
+				412E328725E173FC006E4749 /* Views */,
+				412E326425E14E7E006E4749 /* ViewModels */,
+				412E325F25E14E27006E4749 /* Constants */,
+				412E325A25E14DD8006E4749 /* Enums */,
+				412E324825E145F8006E4749 /* Models */,
 				412E322A25E1305C006E4749 /* Factories */,
 				412E322025E12EDC006E4749 /* Coordinators */,
 				412E321925E12DCD006E4749 /* Services */,
@@ -111,6 +155,7 @@
 		412E31FB25E12C0C006E4749 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				412E325325E14D4A006E4749 /* NetworkService */,
 				412E322525E12FE4006E4749 /* ViewControllerFactory */,
 				412E320125E12C64006E4749 /* Presenter */,
 				412E31FD25E12C24006E4749 /* Navigator */,
@@ -167,6 +212,7 @@
 			children = (
 				412E321A25E12DDF006E4749 /* NavigatorService.swift */,
 				412E321D25E12E9C006E4749 /* BaseCoordinator.swift */,
+				412E325025E14D32006E4749 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -213,6 +259,136 @@
 			path = CoordinatorFactory;
 			sourceTree = "<group>";
 		};
+		412E324825E145F8006E4749 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				412E327525E15093006E4749 /* Endpoint */,
+				412E324925E145FF006E4749 /* Client */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		412E324925E145FF006E4749 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				412E324A25E1460B006E4749 /* ClientType.swift */,
+				412E324D25E14615006E4749 /* Client.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		412E325325E14D4A006E4749 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				412E325425E14D66006E4749 /* NetworkServiceType.swift */,
+				412E325725E14DAF006E4749 /* EndpointType.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		412E325A25E14DD8006E4749 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				412E325B25E14DE7006E4749 /* HTTPMethods.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		412E325F25E14E27006E4749 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				412E326025E14E33006E4749 /* Network.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		412E326425E14E7E006E4749 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				412E326525E14EC0006E4749 /* ClientTable */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		412E326525E14EC0006E4749 /* ClientTable */ = {
+			isa = PBXGroup;
+			children = (
+				412E329425E1B1ED006E4749 /* Services */,
+				412E327A25E150BB006E4749 /* ClientEndpoints */,
+				412E326C25E14EDB006E4749 /* Protocols */,
+				412E326625E14ED2006E4749 /* ClientTableViewModel.swift */,
+				412E328125E17368006E4749 /* ClientCellViewModel.swift */,
+			);
+			path = ClientTable;
+			sourceTree = "<group>";
+		};
+		412E326C25E14EDB006E4749 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				412E327225E14F17006E4749 /* ClientTableServiceType.swift */,
+				412E328425E173A9006E4749 /* ClientCellViewModelType.swift */,
+				412E327E25E171E2006E4749 /* ClientsTableViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		412E327525E15093006E4749 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				412E327625E1509F006E4749 /* Endpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		412E327A25E150BB006E4749 /* ClientEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				412E327B25E150D2006E4749 /* ClientEndpoints.swift */,
+			);
+			path = ClientEndpoints;
+			sourceTree = "<group>";
+		};
+		412E328725E173FC006E4749 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				412E328825E17407006E4749 /* ClientTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		412E328825E17407006E4749 /* ClientTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				412E328925E17432006E4749 /* ClientTableViewCell.swift */,
+			);
+			path = ClientTableViewCell;
+			sourceTree = "<group>";
+		};
+		412E329425E1B1ED006E4749 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				412E326E25E14EF7006E4749 /* ClientTableService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6B1B3C0C42301A01B9324E4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */,
+				70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AEB76BD02FF73C1F8B3192B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CF18673E694461148514366 /* Pods_autostudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,9 +396,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 412E31F525E12B8A006E4749 /* Build configuration list for PBXNativeTarget "autostudio" */;
 			buildPhases = (
+				DEDAC14236F01BB2F996B9FC /* [CP] Check Pods Manifest.lock */,
 				412E31DA25E12B89006E4749 /* Sources */,
 				412E31DB25E12B89006E4749 /* Frameworks */,
 				412E31DC25E12B89006E4749 /* Resources */,
+				D77009FDEE702BFCD5A0F6D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,29 +455,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D77009FDEE702BFCD5A0F6D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-autostudio/Pods-autostudio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-autostudio/Pods-autostudio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-autostudio/Pods-autostudio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEDAC14236F01BB2F996B9FC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-autostudio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		412E31DA25E12B89006E4749 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				412E320825E12CDA006E4749 /* CoordinatorType.swift in Sources */,
+				412E327725E1509F006E4749 /* Endpoint.swift in Sources */,
+				412E325825E14DAF006E4749 /* EndpointType.swift in Sources */,
 				412E323D25E134CF006E4749 /* ViewControllerExt.swift in Sources */,
 				412E31EC25E12B89006E4749 /* autostudio.xcdatamodeld in Sources */,
 				412E31FF25E12C53006E4749 /* NavigatorType.swift in Sources */,
 				412E322725E13017006E4749 /* ClientViewControllerFactoryType.swift in Sources */,
+				412E326725E14ED2006E4749 /* ClientTableViewModel.swift in Sources */,
+				412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */,
 				412E323925E13297006E4749 /* ApplicationCoordinator.swift in Sources */,
+				412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */,
 				412E323125E130FA006E4749 /* CoordinatorFactoryType.swift in Sources */,
+				412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */,
+				412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */,
 				412E321625E12D8B006E4749 /* ClientTableViewController.swift in Sources */,
+				412E326125E14E33006E4749 /* Network.swift in Sources */,
 				412E322D25E1307D006E4749 /* ViewControllerFactory.swift in Sources */,
 				412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */,
 				412E321125E12D5D006E4749 /* View.swift in Sources */,
 				412E321E25E12E9C006E4749 /* BaseCoordinator.swift in Sources */,
 				412E321B25E12DDF006E4749 /* NavigatorService.swift in Sources */,
+				412E325125E14D32006E4749 /* NetworkService.swift in Sources */,
 				412E320325E12C75006E4749 /* PresentableType.swift in Sources */,
+				412E327C25E150D2006E4749 /* ClientEndpoints.swift in Sources */,
 				412E31E425E12B89006E4749 /* SceneDelegate.swift in Sources */,
 				412E322225E12EEE006E4749 /* ClientCoordinator.swift in Sources */,
 				412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */,
+				412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */,
+				412E324B25E1460B006E4749 /* ClientType.swift in Sources */,
+				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
+				412E324E25E14615006E4749 /* Client.swift in Sources */,
+				412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */,
 				412E320C25E12CF6006E4749 /* CoordinatorOutputType.swift in Sources */,
+				412E328225E17368006E4749 /* ClientCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +671,7 @@
 		};
 		412E31F625E12B8A006E4749 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -454,6 +691,7 @@
 		};
 		412E31F725E12B8A006E4749 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

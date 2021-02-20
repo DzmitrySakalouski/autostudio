@@ -24,6 +24,7 @@ class ClientCoordinator: BaseCoordinator {
     
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
+        clientTableVC.viewModel = ClientTableViewModel()
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }
 }
