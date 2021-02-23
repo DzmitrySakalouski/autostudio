@@ -27,7 +27,6 @@
 		412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323425E13161006E4749 /* CoordinatorFactory.swift */; };
 		412E323925E13297006E4749 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323825E13297006E4749 /* ApplicationCoordinator.swift */; };
 		412E323D25E134CF006E4749 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E323C25E134CF006E4749 /* ViewControllerExt.swift */; };
-		412E324B25E1460B006E4749 /* ClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E324A25E1460B006E4749 /* ClientType.swift */; };
 		412E324E25E14615006E4749 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E324D25E14615006E4749 /* Client.swift */; };
 		412E325125E14D32006E4749 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325025E14D32006E4749 /* NetworkService.swift */; };
 		412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E325425E14D66006E4749 /* NetworkServiceType.swift */; };
@@ -43,6 +42,7 @@
 		412E328225E17368006E4749 /* ClientCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328125E17368006E4749 /* ClientCellViewModel.swift */; };
 		412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328425E173A9006E4749 /* ClientCellViewModelType.swift */; };
 		412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328925E17432006E4749 /* ClientTableViewCell.swift */; };
+		412E329925E57280006E4749 /* Natural.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 412E329825E57280006E4749 /* Natural.ttf */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,6 @@
 		412E323425E13161006E4749 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		412E323825E13297006E4749 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		412E323C25E134CF006E4749 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
-		412E324A25E1460B006E4749 /* ClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientType.swift; sourceTree = "<group>"; };
 		412E324D25E14615006E4749 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		412E325025E14D32006E4749 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		412E325425E14D66006E4749 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		412E328125E17368006E4749 /* ClientCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModel.swift; sourceTree = "<group>"; };
 		412E328425E173A9006E4749 /* ClientCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModelType.swift; sourceTree = "<group>"; };
 		412E328925E17432006E4749 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		412E329825E57280006E4749 /* Natural.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Natural.ttf; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +123,7 @@
 		412E31E025E12B89006E4749 /* autostudio */ = {
 			isa = PBXGroup;
 			children = (
+				412E329725E57257006E4749 /* Fonts */,
 				412E328725E173FC006E4749 /* Views */,
 				412E326425E14E7E006E4749 /* ViewModels */,
 				412E325F25E14E27006E4749 /* Constants */,
@@ -271,7 +272,6 @@
 		412E324925E145FF006E4749 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				412E324A25E1460B006E4749 /* ClientType.swift */,
 				412E324D25E14615006E4749 /* Client.swift */,
 			);
 			path = Client;
@@ -372,6 +372,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		412E329725E57257006E4749 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				412E329825E57280006E4749 /* Natural.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		6B1B3C0C42301A01B9324E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				412E329925E57280006E4749 /* Natural.ttf in Resources */,
 				412E31F125E12B8A006E4749 /* LaunchScreen.storyboard in Resources */,
 				412E31EE25E12B8A006E4749 /* Assets.xcassets in Resources */,
 			);
@@ -530,7 +539,6 @@
 				412E322225E12EEE006E4749 /* ClientCoordinator.swift in Sources */,
 				412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */,
 				412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */,
-				412E324B25E1460B006E4749 /* ClientType.swift in Sources */,
 				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
 				412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */,

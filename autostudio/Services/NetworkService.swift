@@ -30,6 +30,7 @@ class NetworkService: NetworkServiceType {
                     complition(.success(responseData))
                 } catch let error {
                     print("fail")
+                    print(error)
                     complition(.failure(error))
                 }
             }

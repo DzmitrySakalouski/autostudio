@@ -9,6 +9,12 @@ import UIKit
 
 class ClientTableViewController: UITableViewController {
     var viewModel: ClientsTableViewModelType?
+    
+    var plusBarButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        btn.tintColor = .white
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +38,9 @@ class ClientTableViewController: UITableViewController {
     
     func configureView() {
         view.backgroundColor = .white
+        navigationController!.navigationBar.isTranslucent = false
+        navigationController!.navigationBar.barTintColor = .gray
+        navigationItem.rightBarButtonItem = plusBarButton
     }
 }
 
@@ -40,9 +49,7 @@ extension ClientTableViewController {
         guard let viewModel = viewModel else {
             return 0
         }
-        
-        print(viewModel.numberOfRows())
-            
+                    
         return viewModel.numberOfRows()
     }
     
@@ -61,4 +68,16 @@ extension ClientTableViewController {
             
             return UITableViewCell()
         }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int { // MOVE
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // MOVE
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
