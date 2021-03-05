@@ -43,6 +43,7 @@
 		412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328425E173A9006E4749 /* ClientCellViewModelType.swift */; };
 		412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328925E17432006E4749 /* ClientTableViewCell.swift */; };
 		412E329925E57280006E4749 /* Natural.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 412E329825E57280006E4749 /* Natural.ttf */; };
+		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		412E328425E173A9006E4749 /* ClientCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModelType.swift; sourceTree = "<group>"; };
 		412E328925E17432006E4749 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		412E329825E57280006E4749 /* Natural.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Natural.ttf; sourceTree = "<group>"; };
+		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 		412E31FA25E12BFF006E4749 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				415D8B7725F27CA000FFAABF /* CreateClientViewController */,
 				412E321425E12D73006E4749 /* ClientTableViewController */,
 			);
 			path = ViewControllers;
@@ -380,6 +383,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		415D8B7725F27CA000FFAABF /* CreateClientViewController */ = {
+			isa = PBXGroup;
+			children = (
+				415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */,
+			);
+			path = CreateClientViewController;
+			sourceTree = "<group>";
+		};
 		6B1B3C0C42301A01B9324E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +554,7 @@
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
 				412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */,
 				412E320C25E12CF6006E4749 /* CoordinatorOutputType.swift in Sources */,
+				415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */,
 				412E328225E17368006E4749 /* ClientCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

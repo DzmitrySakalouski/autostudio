@@ -13,4 +13,9 @@ class ViewControllerFactory: ClientViewControllerFactoryType {
         let clientViewController = ClientTableViewController()
         return clientViewController
     }
+    
+    func makeCreateClientViewController() -> CreateClientViewController {
+        let createClientViewController = CreateClientViewController()
+        return createClientViewController
+    }
 }

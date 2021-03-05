@@ -9,9 +9,10 @@ import UIKit
 
 class ClientTableViewController: UITableViewController {
     var viewModel: ClientsTableViewModelType?
+    var handleAddClientPress: (() -> ())?
     
     var plusBarButton: UIBarButtonItem = {
-        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarPlusPress))
         btn.tintColor = .white
         return btn
     }()
@@ -37,10 +38,18 @@ class ClientTableViewController: UITableViewController {
     }
     
     func configureView() {
+        plusBarButton.target = self
+        
         view.backgroundColor = .white
         navigationController!.navigationBar.isTranslucent = false
         navigationController!.navigationBar.barTintColor = .gray
         navigationItem.rightBarButtonItem = plusBarButton
+    }
+    
+    @objc func handleBarPlusPress() {
+        if handleAddClientPress != nil {
+            handleAddClientPress!()
+        }
     }
 }
 

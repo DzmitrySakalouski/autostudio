@@ -25,6 +25,12 @@ class ClientCoordinator: BaseCoordinator {
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
         clientTableVC.viewModel = ClientTableViewModel()
+        clientTableVC.handleAddClientPress = showCreateClientScreen
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
+    }
+    
+    func showCreateClientScreen() {
+        let createClientVC = factory.makeCreateClientViewController()
+        navigator.navigate(module: createClientVC)
     }
 }
