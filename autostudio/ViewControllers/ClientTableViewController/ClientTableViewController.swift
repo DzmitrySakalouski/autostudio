@@ -29,7 +29,7 @@ class ClientTableViewController: UITableViewController {
         
         viewModel?.fetchClients() { [weak self] in // TODO remove int value
             if let errorMessage = self?.viewModel?.errorMessage {
-                self?.tableView.headerView(forSection: 0)?.textLabel?.text = errorMessage
+                self?.showEmptyMessage(message: errorMessage, viewController: self!)
                 return
             }
 
@@ -78,8 +78,14 @@ extension ClientTableViewController {
             return UITableViewCell()
         }
     
-    override func numberOfSections(in tableView: UITableView) -> Int { // MOVE
-        return 1
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        guard let vm = viewModel else { return 0 }
+        if vm.numberOfRows() > 0 {
+            return 1
+        } else {
+            self.showEmptyMessage(message: "No clients to display", viewController: self)
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // MOVE

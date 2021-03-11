@@ -43,6 +43,8 @@
 		412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328425E173A9006E4749 /* ClientCellViewModelType.swift */; };
 		412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328925E17432006E4749 /* ClientTableViewCell.swift */; };
 		412E329925E57280006E4749 /* Natural.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 412E329825E57280006E4749 /* Natural.ttf */; };
+		4138184625FA217700995643 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184525FA217700995643 /* Box.swift */; };
+		4138184925FA226A00995643 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184825FA226A00995643 /* TableViewHelper.swift */; };
 		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +90,8 @@
 		412E328425E173A9006E4749 /* ClientCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModelType.swift; sourceTree = "<group>"; };
 		412E328925E17432006E4749 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		412E329825E57280006E4749 /* Natural.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Natural.ttf; sourceTree = "<group>"; };
+		4138184525FA217700995643 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		4138184825FA226A00995643 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +129,7 @@
 		412E31E025E12B89006E4749 /* autostudio */ = {
 			isa = PBXGroup;
 			children = (
+				4138184425FA216500995643 /* Helpers */,
 				412E329725E57257006E4749 /* Fonts */,
 				412E328725E173FC006E4749 /* Views */,
 				412E326425E14E7E006E4749 /* ViewModels */,
@@ -383,6 +388,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		4138184425FA216500995643 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4138184525FA217700995643 /* Box.swift */,
+				4138184825FA226A00995643 /* TableViewHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		415D8B7725F27CA000FFAABF /* CreateClientViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,7 +565,9 @@
 				412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */,
 				412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */,
 				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
+				4138184625FA217700995643 /* Box.swift in Sources */,
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
+				4138184925FA226A00995643 /* TableViewHelper.swift in Sources */,
 				412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */,
 				412E320C25E12CF6006E4749 /* CoordinatorOutputType.swift in Sources */,
 				415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */,
