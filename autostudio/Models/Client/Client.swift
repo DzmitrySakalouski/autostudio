@@ -12,7 +12,7 @@ struct Client: Codable {
     var fullName: String
     var car: String
     var phoneNumber: String
-    var createdAt: String
+    var createdAt: String?
     var offerCount: String?
     var totalFeeAmount: String?
 }

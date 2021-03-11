@@ -27,7 +27,7 @@ class ClientTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.bounces = false
         
-        viewModel?.fetchClients() { [weak self] in // TODO remove int value
+        viewModel?.fetchClients() { [weak self] in
             if let errorMessage = self?.viewModel?.errorMessage {
                 self?.showEmptyMessage(message: errorMessage, viewController: self!)
                 return

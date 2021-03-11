@@ -26,7 +26,7 @@ class ClientTableService: ClientTableServiceType {
                     DispatchQueue.main.async {
                         complition(.failure(error))
                     }
-}
+                }
         }
     }
 }
