@@ -14,6 +14,7 @@ extension UITableViewController {
         let errorLabel = UILabel(frame: rect)
         errorLabel.text = message
         errorLabel.numberOfLines = 0
+        errorLabel.textColor = .black
         errorLabel.textAlignment = .center
         errorLabel.sizeToFit()
         

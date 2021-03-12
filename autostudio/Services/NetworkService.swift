@@ -61,7 +61,7 @@ class NetworkService: NetworkServiceType {
             urlRequest.httpBody = jsonBody
         }
         
-        print("urlRequest")
+        print(urlRequest)
         
         return urlRequest
     }

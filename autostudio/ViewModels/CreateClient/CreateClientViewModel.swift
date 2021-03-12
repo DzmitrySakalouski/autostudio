@@ -49,7 +49,7 @@ class CreateClientViewModel: CreateClientViewModelType {
         validate()
         let client = generateClient()
         guard let clientData = client else {
-            print(" error")
+            print("error")
             return
         }
         createClientService.submitClient(client: clientData) { [weak self] result in

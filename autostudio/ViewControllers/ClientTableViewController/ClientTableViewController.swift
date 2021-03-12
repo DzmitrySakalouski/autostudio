@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class ClientTableViewController: UITableViewController {
     var viewModel: ClientsTableViewModelType?
     var handleAddClientPress: (() -> ())?
+    
+    let disposeBag = DisposeBag()
     
     var plusBarButton: UIBarButtonItem = {
         let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarPlusPress))
@@ -21,23 +24,19 @@ class ClientTableViewController: UITableViewController {
         super.viewDidLoad()
         
         configureView()
-        
-        tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
-        
-        tableView.separatorStyle = .none
-        tableView.bounces = false
+        configureCallbacks()
         
         viewModel?.fetchClients() { [weak self] in
-            if let errorMessage = self?.viewModel?.errorMessage {
-                self?.showEmptyMessage(message: errorMessage, viewController: self!)
-                return
-            }
-
             self?.tableView.reloadData()
         }
     }
     
     func configureView() {
+        tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
+        
+        tableView.separatorStyle = .none
+        tableView.bounces = false
+
         plusBarButton.target = self
         
         view.backgroundColor = .white
@@ -50,6 +49,13 @@ class ClientTableViewController: UITableViewController {
         if handleAddClientPress != nil {
             handleAddClientPress!()
         }
+    }
+    
+    func configureCallbacks() {
+        viewModel?.errorMsg.asObservable().bind { [weak self] value in
+            guard let message = value else { return }
+            self?.showEmptyMessage(message: message, viewController: self!)
+        }.disposed(by: disposeBag)
     }
 }
 
@@ -82,10 +88,8 @@ extension ClientTableViewController {
         guard let vm = viewModel else { return 0 }
         if vm.numberOfRows() > 0 {
             return 1
-        } else {
-            self.showEmptyMessage(message: "No clients to display", viewController: self)
-            return 0
         }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // MOVE
@@ -93,6 +97,6 @@ extension ClientTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        // TODO
     }
 }
