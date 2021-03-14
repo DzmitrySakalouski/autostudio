@@ -7,6 +7,7 @@ target 'autostudio' do
 
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
+  pod 'Alamofire', '~> 5.2'
 
   # Pods for autostudio
 
