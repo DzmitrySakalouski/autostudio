@@ -6,40 +6,41 @@
 //
 
 import Foundation
+import RxCocoa
 
 class CreateClientViewModel: CreateClientViewModelType {
     
     var createClientService = CreateClientService()
-    var name: String?
+    var name: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
-    var car: String?
+    var car: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
-    var phoneNumber: String?
+    var phoneNumber: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
     var errorMessage: [String]!
     
     var closeModalAction: (() -> ())?
     
     func validate() {
-        if name == nil {
+        if name.value == nil {
             errorMessage.append("Please specify name")
         }
         
-        if car == nil {
+        if car.value == nil {
             errorMessage.append("Please specify car")
         }
         
-        if car == nil {
+        if car.value == nil {
             errorMessage.append("Please specify phone")
         }
     }
     
     func generateClient() -> Client? {
-        if name == nil || car == nil || phoneNumber == nil {
+        if name.value == nil || car.value == nil || phoneNumber.value == nil {
             return nil
         }
         
-        let client = Client(fullName: name!, car: car!, phoneNumber: phoneNumber!)
+        let client = Client(fullName: name.value!, car: car.value!, phoneNumber: phoneNumber.value!)
         
         return client
     }
@@ -49,7 +50,6 @@ class CreateClientViewModel: CreateClientViewModelType {
         validate()
         let client = generateClient()
         guard let clientData = client else {
-            print("error")
             return
         }
         createClientService.submitClient(client: clientData) { [weak self] result in

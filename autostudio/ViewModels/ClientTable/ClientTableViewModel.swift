@@ -12,7 +12,6 @@ class ClientTableViewModel: ClientsTableViewModelType {
     internal var clientService: ClientTableServiceType
     internal var clients: [Client]?
     var selectedIndexPath: IndexPath?
-    var errorMessage: String?
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
     init() {

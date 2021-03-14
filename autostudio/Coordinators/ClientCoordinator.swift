@@ -31,6 +31,7 @@ class ClientCoordinator: BaseCoordinator {
     
     func showCreateClientScreen() {
         let createClientVC = factory.makeCreateClientViewController()
+        createClientVC.viewModel = CreateClientViewModel()
         createClientVC.closeModalAction = navigator.dismissModule
         navigator.present(module: createClientVC)
     }

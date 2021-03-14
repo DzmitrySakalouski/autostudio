@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class CreateClientViewController: UIViewController {
-    var closeModalAction: (() -> ())?
+    let disposeBag = DisposeBag()
+    var viewModel: CreateClientViewModelType?
 
     lazy var closeLabel: UILabel = {
         let label = UILabel()
@@ -58,6 +60,7 @@ class CreateClientViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
+        configureSubscriptions()
     }
     
     func configureView() {
@@ -96,7 +99,7 @@ class CreateClientViewController: UIViewController {
     }
 
     @objc func handleCloseModal() {
-        guard let closeAction = closeModalAction else {
+        guard let closeAction = viewModel?.closeModalAction else {
             return
         }
         
@@ -104,11 +107,18 @@ class CreateClientViewController: UIViewController {
     }
     
     @objc func handlePressSave() {
-        guard let closeAction = closeModalAction else {
+        guard let closeAction = viewModel?.closeModalAction else {
             return
         }
         
         closeAction()
+    }
+    
+    func configureSubscriptions() {
+        guard let vm = viewModel else { return }
+        nameTextField.rx.text.orEmpty.bind(to: vm.name).disposed(by: disposeBag)
+        carTextField.rx.text.orEmpty.bind(to: vm.car).disposed(by: disposeBag)
+        phoneTextField.rx.text.orEmpty.bind(to: vm.phoneNumber).disposed(by: disposeBag)
     }
 }
 
