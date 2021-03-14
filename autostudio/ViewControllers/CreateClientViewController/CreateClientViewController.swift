@@ -100,18 +100,16 @@ class CreateClientViewController: UIViewController {
 
     @objc func handleCloseModal() {
         guard let closeAction = viewModel?.closeModalAction else {
+            print("nooooo")
             return
         }
-        
         closeAction()
     }
     
     @objc func handlePressSave() {
-        guard let closeAction = viewModel?.closeModalAction else {
-            return
+        viewModel?.sumbitClient { [weak self] in
+            
         }
-        
-        closeAction()
     }
     
     func configureSubscriptions() {

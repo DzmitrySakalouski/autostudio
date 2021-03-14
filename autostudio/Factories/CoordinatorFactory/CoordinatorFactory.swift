@@ -8,8 +8,13 @@
 import Foundation
 
 class CoordinatorFactory: CoordinatorFactoryType {
-    func makeClientCoordinator(navigator: NavigatorType) -> ClientCoordinator {
+    func makeCreateClientCoordinator(navigator: NavigatorType) -> CreateClientCoordinator {
         let factory = ViewControllerFactory()
-        return ClientCoordinator(factory: factory, navigator: navigator)
+        return CreateClientCoordinator(factory: factory, navigator: navigator)
+    }
+    
+    func makeClientCoordinator(navigator: NavigatorType, coordinatorFactory: CoordinatorFactoryType) -> ClientCoordinator {
+        let factory = ViewControllerFactory()
+        return ClientCoordinator(factory: factory, navigator: navigator, coordinatorFactory: coordinatorFactory)
     }
 }

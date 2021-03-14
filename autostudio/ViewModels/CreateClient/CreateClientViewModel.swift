@@ -17,22 +17,29 @@ class CreateClientViewModel: CreateClientViewModelType {
     
     var phoneNumber: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
-    var errorMessage: [String]!
+    var errorMessage: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
     var closeModalAction: (() -> ())?
     
-    func validate() {
-        if name.value == nil {
-            errorMessage.append("Please specify name")
+    func validate() -> Bool {
+        print(name.value! == nil, car.value!  == nil, phoneNumber.value! == nil)
+        if name.value == nil || name.value! == "" {
+            errorMessage.accept("Please specify name")
+            return false
         }
         
-        if car.value == nil {
-            errorMessage.append("Please specify car")
+        if car.value == nil || car.value! == "" {
+            errorMessage.accept("Please specify car")
+            return false
         }
         
-        if car.value == nil {
-            errorMessage.append("Please specify phone")
+        if phoneNumber.value == nil || phoneNumber.value! == ""  {
+            errorMessage.accept("Please specify phone")
+            return false
         }
+        
+        errorMessage.accept(nil)
+        return true
     }
     
     func generateClient() -> Client? {
@@ -45,9 +52,9 @@ class CreateClientViewModel: CreateClientViewModelType {
         return client
     }
     
-    func sumbitClient(complition: @escaping () -> ()) {
-        errorMessage = [String]()
-        validate()
+    func sumbitClient(complition: (() -> ())?) {
+        if !validate() { return }
+
         let client = generateClient()
         guard let clientData = client else {
             return
@@ -55,14 +62,15 @@ class CreateClientViewModel: CreateClientViewModelType {
         createClientService.submitClient(client: clientData) { [weak self] result in
             switch(result) {
             case .success(let client):
-                complition()
+                complition?()
                 print(client)
                 self?.closeModalAction?()
-            
+
             case .failure(let error):
                 print(error)
-                complition()
+                complition?()
+                self?.closeModalAction?()
+            }
         }
     }
-}
 }

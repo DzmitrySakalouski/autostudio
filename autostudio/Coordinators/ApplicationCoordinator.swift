@@ -21,7 +21,8 @@ class ApplicationCoordinator: BaseCoordinator {
     }
     
     func runClientFlow () {
-        let coordinator = coordinatorFacrory.makeClientCoordinator(navigator: navigator)
+        let coordinatorFactory = CoordinatorFactory()
+        let coordinator = coordinatorFacrory.makeClientCoordinator(navigator: navigator, coordinatorFactory: coordinatorFactory)
         addDependency(coordinator: coordinator)
         coordinator.start()
     }

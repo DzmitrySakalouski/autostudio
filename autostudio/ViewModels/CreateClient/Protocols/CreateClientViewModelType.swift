@@ -13,5 +13,5 @@ protocol CreateClientViewModelType {
     var car: BehaviorRelay<String?> { get set }
     var phoneNumber: BehaviorRelay<String?> { get set }
     var closeModalAction: (() -> ())? { get set }
-    func sumbitClient(complition: @escaping () -> ()) -> ()
+    func sumbitClient(complition: (() -> ())?) -> ()
 }

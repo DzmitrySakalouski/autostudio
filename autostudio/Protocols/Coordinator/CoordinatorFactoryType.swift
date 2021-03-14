@@ -8,5 +8,6 @@
 import Foundation
 
 protocol CoordinatorFactoryType {
-    func makeClientCoordinator(navigator: NavigatorType) -> ClientCoordinator
+    func makeClientCoordinator(navigator: NavigatorType, coordinatorFactory: CoordinatorFactoryType) -> ClientCoordinator
+    func makeCreateClientCoordinator(navigator: NavigatorType) -> CreateClientCoordinator
 }
