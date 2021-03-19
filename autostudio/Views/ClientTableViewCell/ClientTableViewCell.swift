@@ -29,28 +29,27 @@ class ClientTableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.init(name: "Gill Sans", size: 18)
         return label
     }()
     
     var phoneLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.font = UIFont.init(name: "Gill Sans", size: 16)
         return label
     }()
     
     var outerContainer: UIView = {
         let v = UIView()
-        v.backgroundColor = .gray
+        v.backgroundColor = .white
         return v
     }()
     
     var container: UIView = {
         let v = UIView()
-        v.layer.cornerRadius = 5
-        v.backgroundColor = .darkGray
+        v.backgroundColor = .white
         return v
     }()
     
@@ -63,6 +62,7 @@ class ClientTableViewCell: UITableViewCell {
     
     var avatarLabel: UILabel = {
         var l = UILabel()
+        l.textColor = .white
         l.font = UIFont.init(name: "Gill Sans", size: 26)
         return l
     }()
@@ -72,7 +72,7 @@ class ClientTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         backgroundColor = .white
-        
+
         addSubview(outerContainer)
         outerContainer.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
         outerContainer.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
@@ -97,7 +97,7 @@ class ClientTableViewCell: UITableViewCell {
         
         container.addSubview(titleLabel)
 
-        titleLabel.anchor(top: container.topAnchor, left: avatar.rightAnchor, paddingTop: 10, paddingLeft: 20)
+        titleLabel.anchor(top: avatar.topAnchor, left: avatar.rightAnchor, paddingTop: 10, paddingLeft: 20)
 
         container.addSubview(phoneLabel)
         phoneLabel.anchor(top: titleLabel.bottomAnchor, left: avatar.rightAnchor, paddingTop: 3, paddingLeft: 20, paddingBottom: 40)

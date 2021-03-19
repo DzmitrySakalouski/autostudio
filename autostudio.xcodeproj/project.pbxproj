@@ -52,6 +52,8 @@
 		4138186025FA453300995643 /* CreateClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138185F25FA453300995643 /* CreateClientService.swift */; };
 		414F95E125FE3AC400911383 /* CreateClientCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F95E025FE3AC400911383 /* CreateClientCoordinator.swift */; };
 		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
+		415F12E325FFD31800854902 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12E225FFD31800854902 /* APIClient.swift */; };
+		415F12EE26012EA800854902 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12ED26012EA800854902 /* APIClientType.swift */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,8 @@
 		4138185F25FA453300995643 /* CreateClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientService.swift; sourceTree = "<group>"; };
 		414F95E025FE3AC400911383 /* CreateClientCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientCoordinator.swift; sourceTree = "<group>"; };
 		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
+		415F12E225FFD31800854902 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		415F12ED26012EA800854902 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +180,7 @@
 		412E31FB25E12C0C006E4749 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				415F12EC26012E9900854902 /* APIClient */,
 				412E325325E14D4A006E4749 /* NetworkService */,
 				412E322525E12FE4006E4749 /* ViewControllerFactory */,
 				412E320125E12C64006E4749 /* Presenter */,
@@ -235,6 +240,7 @@
 				412E321A25E12DDF006E4749 /* NavigatorService.swift */,
 				412E321D25E12E9C006E4749 /* BaseCoordinator.swift */,
 				412E325025E14D32006E4749 /* NetworkService.swift */,
+				415F12E225FFD31800854902 /* APIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -455,6 +461,14 @@
 			path = CreateClientViewController;
 			sourceTree = "<group>";
 		};
+		415F12EC26012E9900854902 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				415F12ED26012EA800854902 /* APIClientType.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
 		6B1B3C0C42301A01B9324E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				412E320825E12CDA006E4749 /* CoordinatorType.swift in Sources */,
+				415F12EE26012EA800854902 /* APIClientType.swift in Sources */,
 				412E327725E1509F006E4749 /* Endpoint.swift in Sources */,
 				4138185725FA42BC00995643 /* CreateClientViewModel.swift in Sources */,
 				4138185C25FA430B00995643 /* CreateClientViewModelType.swift in Sources */,
@@ -601,6 +616,7 @@
 				412E323925E13297006E4749 /* ApplicationCoordinator.swift in Sources */,
 				412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */,
 				4138185025FA3E8E00995643 /* TextField.swift in Sources */,
+				415F12E325FFD31800854902 /* APIClient.swift in Sources */,
 				412E323125E130FA006E4749 /* CoordinatorFactoryType.swift in Sources */,
 				412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */,
 				4138184C25FA344000995643 /* TextFieldExtension.swift in Sources */,

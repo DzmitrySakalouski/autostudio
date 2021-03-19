@@ -7,41 +7,22 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
-class ClientTableViewModel: ClientsTableViewModelType {    
+class ClientTableViewModel: ClientsTableViewModelType {
     internal var clientService: ClientTableServiceType
-    internal var clients: [Client]?
-    var selectedIndexPath: IndexPath?
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
+    let disposeBag = DisposeBag()
     
-    init() {
-        clientService = ClientTableService()
+    internal var clients: Observable<[Client]>?
+    
+    init(service: ClientTableServiceType) {
+        clientService = service
+        clients = clientService.fetchClients().observe(on: MainScheduler.instance)
     }
     
-    func numberOfRows() -> Int {
-        return clients?.count ?? 0
-    }
-    
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> ClientCellViewModel? {
-        guard let client = clients?[indexPath.row] else { return nil }
+    func cellViewModel(client: Client) -> ClientCellViewModel? {
         return ClientCellViewModel(client: client)
     }
     
-    func fetchClients(complition: @escaping () -> ()) {
-        clientService.getClients { [weak self] result in
-            print("REQUEST")
-            switch result {
-            case .success(let clients):
-                print(clients.clients)
-                self?.clients = clients.clients
-                if clients.clients.count == 0 {
-                    self?.errorMsg.accept("Нет клиентов")
-                }
-                complition()
-            case .failure(let error):
-                self?.errorMsg.accept(error.localizedDescription)
-                complition()
-            }
-        }
-    }
 }

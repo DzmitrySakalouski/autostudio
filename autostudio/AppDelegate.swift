@@ -7,13 +7,15 @@
 
 import UIKit
 import CoreData
+import Swinject
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var container = Container()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.registerDependencies()
         let BarButtonItemAppearance = UIBarButtonItem.appearance()
         BarButtonItemAppearance.setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
         // Override point for customization after application launch.
@@ -32,6 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func registerDependencies() {
+        container.register(NetworkServiceType.self, factory: {_ in return NetworkService()})
+        container.register(APIClientType.self, factory: {r in APIClient(networkService: r.resolve(NetworkService.self)!)})
+        
+        container.register(ClientTableServiceType.self, factory: {r in return ClientTableService(apiClient: r.resolve(APIClientType.self)!)})
+        container.register(ClientsTableViewModelType.self, factory: {r in return ClientTableViewModel(service: r.resolve(ClientTableServiceType.self)!)})
+    }
+    
+    func injectDependencies() {
+//        self.container.
     }
 
     // MARK: - Core Data stack

@@ -11,26 +11,19 @@ class NetworkService: NetworkServiceType {
     func makeRequest<T: Codable>(endpoint: EndpointType, complition: @escaping (Result<T, Error>) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         guard let request = buildRequest(endpoint: endpoint) else {
-            print("error")
             return
         }
         let dataTask = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("error")
                 complition(.failure(error))
             }
-            
-            print("req success")
-            
+                        
             if let data = data {
                 print(data)
                 do {
                     let responseData = try JSONDecoder().decode(T.self, from: data)
-                    print(data)
                     complition(.success(responseData))
                 } catch let error {
-                    print("fail")
-                    print(error)
                     complition(.failure(error))
                 }
             }

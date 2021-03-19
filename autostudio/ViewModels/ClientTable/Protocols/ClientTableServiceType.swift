@@ -5,9 +5,9 @@
 //  Created by Dzmitry  Sakalouski  on 20.02.21.
 //
 
-import Foundation
+import RxSwift
 
 protocol ClientTableServiceType {
-    var networkService: NetworkServiceType { get set }
-    func getClients(complition: @escaping (Result<ClientList, Error>) -> ())
+    var apiClient: APIClientType { get set }
+    func fetchClients() -> Observable<[Client]>
 }

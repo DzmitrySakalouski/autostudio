@@ -7,12 +7,11 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 protocol ClientsTableViewModelType {
     var clientService: ClientTableServiceType { get set }
-    var clients: [Client]? { get set }
+    var clients: Observable<[Client]>? { get set }
     var errorMsg: BehaviorRelay<String?> { get set }
-    func numberOfRows() -> Int
-    func fetchClients(complition: @escaping () -> ())
-    func cellViewModel(forIndexPath indexPath: IndexPath) -> ClientCellViewModel?
+    func cellViewModel(client: Client) -> ClientCellViewModel?
 }

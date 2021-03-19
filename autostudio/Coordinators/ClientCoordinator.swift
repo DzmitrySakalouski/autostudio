@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import Swinject
 
 class ClientCoordinator: BaseCoordinator {
-//    var finishFlow: (() -> Void)?
-    
     private let navigator: NavigatorType
     private let factory: ClientViewControllerFactoryType
     private let coordinatorFactory: CoordinatorFactoryType
+    
+    private var container: Container {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.container
+    }
          
     init(factory: ClientViewControllerFactoryType, navigator: NavigatorType, coordinatorFactory: CoordinatorFactoryType) {
         self.navigator = navigator
@@ -26,7 +30,7 @@ class ClientCoordinator: BaseCoordinator {
     
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
-        clientTableVC.viewModel = ClientTableViewModel()
+        clientTableVC.viewModel = container.resolve(ClientTableServiceType.self) as? ClientTableViewModel
         clientTableVC.handleAddClientPress = runCreateClientFlow
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class ClientTableViewController: UITableViewController {
-    var viewModel: ClientsTableViewModelType?
+    var viewModel: ClientTableViewModel? // Type?
     var handleAddClientPress: (() -> ())?
     
     let disposeBag = DisposeBag()
@@ -22,19 +22,15 @@ class ClientTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = nil
         
         configureView()
         configureCallbacks()
-        
-        viewModel?.fetchClients() { [weak self] in
-            self?.tableView.reloadData()
-        }
     }
     
     func configureView() {
         tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
-        
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.bounces = false
 
         plusBarButton.target = self
@@ -52,6 +48,10 @@ class ClientTableViewController: UITableViewController {
     }
     
     func configureCallbacks() {
+        viewModel?.clients?.bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
+            cell.viewModel = self?.viewModel?.cellViewModel(client: client)
+        }.disposed(by: disposeBag)
+        
         viewModel?.errorMsg.asObservable().bind { [weak self] value in
             guard let message = value else { return }
             self?.showEmptyMessage(message: message, viewController: self!)
@@ -60,43 +60,7 @@ class ClientTableViewController: UITableViewController {
 }
 
 extension ClientTableViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else {
-            return 0
-        }
-                    
-        return viewModel.numberOfRows()
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "clientCell", for: indexPath) as? ClientTableViewCell
-            if let tableCell = cell {
-                guard let viewModel = viewModel else {
-                    return UITableViewCell()
-                }
-                
-                let cellVM = viewModel.cellViewModel(forIndexPath: indexPath)
-                tableCell.viewModel = cellVM
-
-                return tableCell
-            }
-            
-            return UITableViewCell()
-        }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        guard let vm = viewModel else { return 0 }
-        if vm.numberOfRows() > 0 {
-            return 1
-        }
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // MOVE
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
     }
 }

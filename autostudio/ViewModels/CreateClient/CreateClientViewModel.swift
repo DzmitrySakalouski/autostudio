@@ -22,7 +22,6 @@ class CreateClientViewModel: CreateClientViewModelType {
     var closeModalAction: (() -> ())?
     
     func validate() -> Bool {
-        print(name.value! == nil, car.value!  == nil, phoneNumber.value! == nil)
         if name.value == nil || name.value! == "" {
             errorMessage.accept("Please specify name")
             return false
