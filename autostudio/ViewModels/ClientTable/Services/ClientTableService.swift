@@ -8,7 +8,7 @@
 import RxSwift
 
 class ClientTableService: ClientTableServiceType {
-    var apiClient: APIClientType
+    var apiClient: APIClientType!
     
     init(apiClient: APIClientType) {
         self.apiClient = apiClient

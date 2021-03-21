@@ -36,9 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
+    // MARK: - DI stack
+    
     func registerDependencies() {
         container.register(NetworkServiceType.self, factory: {_ in return NetworkService()})
-        container.register(APIClientType.self, factory: {r in APIClient(networkService: r.resolve(NetworkService.self)!)})
+        container.register(APIClientType.self, factory: {r in
+            return APIClient(networkService: r.resolve(NetworkServiceType.self)!)})
         
         container.register(ClientTableServiceType.self, factory: {r in return ClientTableService(apiClient: r.resolve(APIClientType.self)!)})
         container.register(ClientsTableViewModelType.self, factory: {r in return ClientTableViewModel(service: r.resolve(ClientTableServiceType.self)!)})
