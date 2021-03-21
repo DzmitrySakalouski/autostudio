@@ -14,9 +14,7 @@ class ClientTableService: ClientTableServiceType {
         self.apiClient = apiClient
     }
     
-    func fetchClients() -> Observable<[Client]> {
-        return apiClient.call(endpoint: ClientEndpoints.getAll.endpoint).map{(clientRespose: ClientList) in
-            return clientRespose.clients
-        }.observe(on: MainScheduler.instance)
+    func fetchClients() -> Observable<ClientList> {
+        return apiClient.call(endpoint: ClientEndpoints.getAll.endpoint).observe(on: MainScheduler.instance)
     }
 }

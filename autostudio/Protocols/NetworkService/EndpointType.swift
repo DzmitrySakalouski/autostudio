@@ -13,6 +13,4 @@ protocol EndpointType {
     var parameters: [URLQueryItem] { get set }
     
     var method: HTTPMethod { get }
-    
-    var body: Decodable? { get set }
 }

@@ -16,6 +16,4 @@ struct Endpoint: EndpointType {
     var parameters: [URLQueryItem]
     
     var method: HTTPMethod
-    
-    var body: Decodable?
 }

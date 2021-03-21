@@ -5,27 +5,16 @@
 //  Created by Dzmitry  Sakalouski  on 11.03.21.
 //
 
-import Foundation
+import RxSwift
 
-class CreateClientService {
-    var networkService: NetworkServiceType
+class CreateClientService: CreateClientServiceType {
+    var apiClient: APIClientType!
     
-    init() {
-        self.networkService = NetworkService()
+    init(apiClient: APIClientType) {
+        self.apiClient = apiClient
     }
     
-    func submitClient(client: Client, complition: @escaping (Result<Client, Error>) -> ()) {
-        networkService.makeRequest(endpoint: ClientEndpoints.createClient(client: client) as! EndpointType) {(result: Result<Client, Error>) in
-            switch result {
-                case .success(let client):
-                    DispatchQueue.main.async {
-                        complition(.success(client))
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        complition(.failure(error))
-                    }
-                }
-        }
+    func submitClient(client: Client) -> Observable<Client> {
+        return apiClient.callWithBody(endpoint: ClientEndpoints.createClient.endpoint, body: client).observe(on: MainScheduler.instance)
     }
 }

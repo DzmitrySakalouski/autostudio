@@ -30,7 +30,7 @@ class ClientCoordinator: BaseCoordinator {
     
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
-        clientTableVC.viewModel = container.resolve(ClientTableServiceType.self) as? ClientTableViewModel
+        clientTableVC.viewModel = container.resolve(ClientsTableViewModelType.self) as? ClientTableViewModel
         clientTableVC.handleAddClientPress = runCreateClientFlow
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }

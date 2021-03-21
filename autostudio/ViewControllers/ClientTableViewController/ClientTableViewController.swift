@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 
 class ClientTableViewController: UITableViewController {
-    var viewModel: ClientTableViewModel? // Type?
+    var viewModel: ClientsTableViewModelType?
     var handleAddClientPress: (() -> ())?
     
     let disposeBag = DisposeBag()
@@ -49,13 +49,17 @@ class ClientTableViewController: UITableViewController {
     
     func configureCallbacks() {
         viewModel?.clients?.bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
+            print(client)
             cell.viewModel = self?.viewModel?.cellViewModel(client: client)
         }.disposed(by: disposeBag)
         
-        viewModel?.errorMsg.asObservable().bind { [weak self] value in
+        print("Configure")
+        
+        viewModel?.errorMsg.subscribe(onNext: { [weak self] value in
+            print("errormsg", value)
             guard let message = value else { return }
             self?.showEmptyMessage(message: message, viewController: self!)
-        }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
 }
 

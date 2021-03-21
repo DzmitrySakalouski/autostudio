@@ -9,4 +9,5 @@ import Foundation
 
 protocol NetworkServiceType {
     func makeRequest<T: Codable>(endpoint: EndpointType, complition: @escaping (Result<T, Error>) -> ()) -> ()
+    func makeRequestWithBody<T: Codable>(endpoint: EndpointType, body: T, complition: @escaping (Result<T, Error>) -> ())
 }

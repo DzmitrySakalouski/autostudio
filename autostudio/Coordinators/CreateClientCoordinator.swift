@@ -5,11 +5,16 @@
 //  Created by Dzmitry  Sakalouski  on 14.03.21.
 //
 
-import Foundation
+import Swinject
 
 class CreateClientCoordinator: BaseCoordinator, CoordinatorOutputType {
     private let navigator: NavigatorType
     private let factory: ClientViewControllerFactoryType
+    
+    private var container: Container {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.container
+    }
          
     init(factory: ClientViewControllerFactoryType, navigator: NavigatorType) {
         self.navigator = navigator
@@ -24,9 +29,9 @@ class CreateClientCoordinator: BaseCoordinator, CoordinatorOutputType {
     
     func showCreateClientScreen() {
         let createClientVC = factory.makeCreateClientViewController()
-        let createClientVM = CreateClientViewModel()
+        var createClientVM = container.resolve(CreateClientViewModelType.self)
         
-        createClientVM.closeModalAction = finishFlow
+        createClientVM?.closeModalAction = finishFlow
         createClientVC.viewModel = createClientVM
 
         navigator.present(module: createClientVC)

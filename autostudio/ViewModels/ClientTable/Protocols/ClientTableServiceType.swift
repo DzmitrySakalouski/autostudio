@@ -9,5 +9,5 @@ import RxSwift
 
 protocol ClientTableServiceType {
     var apiClient: APIClientType! { get set }
-    func fetchClients() -> Observable<[Client]>
+    func fetchClients() -> Observable<ClientList>
 }

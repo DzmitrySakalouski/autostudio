@@ -45,11 +45,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         container.register(ClientTableServiceType.self, factory: {r in return ClientTableService(apiClient: r.resolve(APIClientType.self)!)})
         container.register(ClientsTableViewModelType.self, factory: {r in return ClientTableViewModel(service: r.resolve(ClientTableServiceType.self)!)})
+        
+        container.register(CreateClientServiceType.self, factory: { r in
+            return CreateClientService(apiClient: r.resolve(APIClientType.self)!)
+        })
+        container.register(CreateClientViewModelType.self, factory: { r in
+            return CreateClientViewModel(createClientService: r.resolve(CreateClientServiceType.self)!)
+        })
     }
     
-    func injectDependencies() {
-//        self.container.
-    }
 
     // MARK: - Core Data stack
 

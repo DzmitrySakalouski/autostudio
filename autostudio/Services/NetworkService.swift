@@ -8,6 +8,39 @@
 import Foundation
 
 class NetworkService: NetworkServiceType {
+    func makeRequestWithBody<T: Codable>(endpoint: EndpointType, body: T, complition: @escaping (Result<T, Error>) -> ()) {
+        
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        guard var request = buildRequest(endpoint: endpoint) else {
+            return
+        }
+        
+        do {
+            let jsonBody = try JSONEncoder().encode(body)
+            print("JSON BODY ===>", print(String(data: jsonBody, encoding: .utf8)!))
+            request.httpBody = jsonBody
+        } catch {
+            print(error)
+        }
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                complition(.failure(error))
+            }
+                        
+            if let data = data {
+                do {
+                    let responseData = try JSONDecoder().decode(T.self, from: data)
+                    complition(.success(responseData))
+                } catch let error {
+                    complition(.failure(error))
+                }
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
     func makeRequest<T: Codable>(endpoint: EndpointType, complition: @escaping (Result<T, Error>) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         guard let request = buildRequest(endpoint: endpoint) else {
@@ -17,16 +50,21 @@ class NetworkService: NetworkServiceType {
             if let error = error {
                 complition(.failure(error))
             }
-                        
-            if let data = data {
-                print(data)
+            
+            print("data -> ", data)
+            print("ERR ->", T.self)
+            
+            guard let data = data else { return }
+            print(data)
+//            if let data = data {
                 do {
                     let responseData = try JSONDecoder().decode(T.self, from: data)
+                    print(responseData)
                     complition(.success(responseData))
                 } catch let error {
                     complition(.failure(error))
                 }
-            }
+//            }
         }
         
         dataTask.resume()
@@ -45,16 +83,9 @@ class NetworkService: NetworkServiceType {
         guard let url = urlComponents.url else { return nil }
         var urlRequest = URLRequest(url: url)
         
-        print(url)
         
         urlRequest.httpMethod = endpoint.method.rawValue
-        
-        if let body = endpoint.body {
-            let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-            urlRequest.httpBody = jsonBody
-        }
-        
-        print(urlRequest)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "content-type")
         
         return urlRequest
     }

@@ -10,7 +10,7 @@ import RxSwift
 
 class CreateClientViewController: UIViewController {
     let disposeBag = DisposeBag()
-    var viewModel: CreateClientViewModelType?
+    var viewModel: CreateClientViewModelType!
 
     lazy var closeLabel: UILabel = {
         let label = UILabel()
@@ -55,6 +55,12 @@ class CreateClientViewController: UIViewController {
         button.layer.cornerRadius = 4
         return button
     }()
+    
+    lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .red
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +72,8 @@ class CreateClientViewController: UIViewController {
     func configureView() {
         navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .gray
+        
+        configureSubscriptions()
         
         view.addSubview(closeLabel)
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleCloseModal))
@@ -90,6 +98,10 @@ class CreateClientViewController: UIViewController {
                              paddingBottom: 30, paddingRight: 20)
         submitButton.addTarget(self, action: #selector(handlePressSave), for: .touchUpInside)
         
+        view.addSubview(errorLabel)
+        errorLabel.anchor(top: submitButton.bottomAnchor)
+        errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
     }
     
     func setDelegated() {
@@ -107,9 +119,12 @@ class CreateClientViewController: UIViewController {
     }
     
     @objc func handlePressSave() {
-//        viewModel?.sumbitClient { [weak self] in
-//            
-//        }
+        guard let vm = viewModel else {
+            print("NO MODEL")
+            return
+        }
+        
+        vm.sumbitClient()
     }
     
     func configureSubscriptions() {
@@ -117,6 +132,12 @@ class CreateClientViewController: UIViewController {
         nameTextField.rx.text.orEmpty.bind(to: vm.name).disposed(by: disposeBag)
         carTextField.rx.text.orEmpty.bind(to: vm.car).disposed(by: disposeBag)
         phoneTextField.rx.text.orEmpty.bind(to: vm.phoneNumber).disposed(by: disposeBag)
+        
+        vm.errorMessage.subscribe(onNext: { [weak self] messageValue in
+            if let message = messageValue {
+                self?.errorLabel.text = message
+            }
+        }).disposed(by: disposeBag)
     }
 }
 

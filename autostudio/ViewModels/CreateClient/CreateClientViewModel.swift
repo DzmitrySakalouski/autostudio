@@ -7,32 +7,39 @@
 
 import Foundation
 import RxCocoa
+import RxSwift
 
 class CreateClientViewModel: CreateClientViewModelType {
+    var createClientService: CreateClientServiceType!
     
-    var createClientService = CreateClientService()
     var name: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
-    
     var car: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
-    
     var phoneNumber: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     
     var errorMessage: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
-    
     var closeModalAction: (() -> ())?
+    
+    let disposeBag = DisposeBag()
+    
+    init(createClientService: CreateClientServiceType) {
+        self.createClientService = createClientService
+    }
     
     func validate() -> Bool {
         if name.value == nil || name.value! == "" {
+            print("name.value == nil || name.value!")
             errorMessage.accept("Please specify name")
             return false
         }
         
         if car.value == nil || car.value! == "" {
+            print("car.value == nil || car.value! == ")
             errorMessage.accept("Please specify car")
             return false
         }
         
         if phoneNumber.value == nil || phoneNumber.value! == ""  {
+            print("phoneNumber.value == nil || phoneNumber.value!")
             errorMessage.accept("Please specify phone")
             return false
         }
@@ -47,29 +54,17 @@ class CreateClientViewModel: CreateClientViewModelType {
         }
         
         let client = Client(fullName: name.value!, car: car.value!, phoneNumber: phoneNumber.value!)
-        
+        print("client", client)
         return client
     }
     
-    func sumbitClient(complition: (() -> ())?) {
-        if !validate() { return }
-
-        let client = generateClient()
-        guard let clientData = client else {
-            return
-        }
-        createClientService.submitClient(client: clientData) { [weak self] result in
-            switch(result) {
-            case .success(let client):
-                complition?()
-                print(client)
+    func sumbitClient() {
+        print("'SSSSSUUUUBBBB'")
+        if validate() {
+            guard let client = generateClient() else { return }
+            createClientService.submitClient(client: client).asObservable().subscribe(onNext: {[weak self] _ in
                 self?.closeModalAction?()
-
-            case .failure(let error):
-                print(error)
-                complition?()
-                self?.closeModalAction?()
-            }
+            }).disposed(by: disposeBag)
         }
     }
 }

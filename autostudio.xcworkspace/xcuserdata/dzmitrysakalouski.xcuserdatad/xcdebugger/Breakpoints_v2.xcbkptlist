@@ -46,8 +46,8 @@
             filePath = "autostudio/ViewControllers/CreateClientViewController/CreateClientViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "handleCloseModal()"
             landmarkType = "7">
          </BreakpointContent>

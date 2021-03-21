@@ -50,6 +50,7 @@
 		4138185725FA42BC00995643 /* CreateClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138185625FA42BC00995643 /* CreateClientViewModel.swift */; };
 		4138185C25FA430B00995643 /* CreateClientViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138185B25FA430A00995643 /* CreateClientViewModelType.swift */; };
 		4138186025FA453300995643 /* CreateClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138185F25FA453300995643 /* CreateClientService.swift */; };
+		41395F2026075D86001B718D /* CreateClientServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41395F1F26075D86001B718D /* CreateClientServiceType.swift */; };
 		414F95E125FE3AC400911383 /* CreateClientCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F95E025FE3AC400911383 /* CreateClientCoordinator.swift */; };
 		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
 		415F12E325FFD31800854902 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12E225FFD31800854902 /* APIClient.swift */; };
@@ -105,6 +106,7 @@
 		4138185625FA42BC00995643 /* CreateClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewModel.swift; sourceTree = "<group>"; };
 		4138185B25FA430A00995643 /* CreateClientViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewModelType.swift; sourceTree = "<group>"; };
 		4138185F25FA453300995643 /* CreateClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientService.swift; sourceTree = "<group>"; };
+		41395F1F26075D86001B718D /* CreateClientServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientServiceType.swift; sourceTree = "<group>"; };
 		414F95E025FE3AC400911383 /* CreateClientCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientCoordinator.swift; sourceTree = "<group>"; };
 		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
 		415F12E225FFD31800854902 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				4138184425FA216500995643 /* Helpers */,
 				412E329725E57257006E4749 /* Fonts */,
+				412E327A25E150BB006E4749 /* Endpoints */,
 				412E328725E173FC006E4749 /* Views */,
 				412E326425E14E7E006E4749 /* ViewModels */,
 				412E325F25E14E27006E4749 /* Constants */,
@@ -343,7 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				412E329425E1B1ED006E4749 /* Services */,
-				412E327A25E150BB006E4749 /* ClientEndpoints */,
 				412E326C25E14EDB006E4749 /* Protocols */,
 				412E326625E14ED2006E4749 /* ClientTableViewModel.swift */,
 				412E328125E17368006E4749 /* ClientCellViewModel.swift */,
@@ -369,12 +371,12 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
-		412E327A25E150BB006E4749 /* ClientEndpoints */ = {
+		412E327A25E150BB006E4749 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
 				412E327B25E150D2006E4749 /* ClientEndpoints.swift */,
 			);
-			path = ClientEndpoints;
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		412E328725E173FC006E4749 /* Views */ = {
@@ -441,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				4138185B25FA430A00995643 /* CreateClientViewModelType.swift */,
+				41395F1F26075D86001B718D /* CreateClientServiceType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -620,6 +623,7 @@
 				412E323125E130FA006E4749 /* CoordinatorFactoryType.swift in Sources */,
 				412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */,
 				4138184C25FA344000995643 /* TextFieldExtension.swift in Sources */,
+				41395F2026075D86001B718D /* CreateClientServiceType.swift in Sources */,
 				412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */,
 				412E321625E12D8B006E4749 /* ClientTableViewController.swift in Sources */,
 				412E326125E14E33006E4749 /* Network.swift in Sources */,
