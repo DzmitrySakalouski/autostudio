@@ -9,19 +9,31 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class ClientTableViewModel: ClientsTableViewModelType {
+class ClientTableViewModel: ClientsTableViewModelType, UpdateDelegateType {
     internal var clientService: ClientTableServiceType
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     let disposeBag = DisposeBag()
     
-    internal var clients: Observable<[Client]>?
+    var createClientVM: CreateClientViewModel!
+    
+    internal var clients: BehaviorRelay<[Client]> = BehaviorRelay<[Client]>(value: [Client]())
     
     init(service: ClientTableServiceType) {
         clientService = service
-        clients = clientService.fetchClients()?.observe(on: MainScheduler.instance).catch { [weak self] error in
+        createClientVM?.delegate = self
+    }
+    
+    func update() {
+        getClients()
+    }
+    
+    func getClients() {
+        clientService.fetchClients().observe(on: MainScheduler.instance).map{$0.clients}.subscribe(onNext: { [weak self] data in
+            print(data.count)
+            self?.clients.accept(data)
+        }, onError: { [weak self] error in
             self?.errorMsg.accept(error.localizedDescription)
-            return Observable.just([Client]())
-        }
+        }).disposed(by: disposeBag)
     }
     
     func cellViewModel(client: Client) -> ClientCellViewModel? {

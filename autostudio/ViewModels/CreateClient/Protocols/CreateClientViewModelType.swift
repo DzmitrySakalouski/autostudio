@@ -16,4 +16,5 @@ protocol CreateClientViewModelType {
     var errorMessage: BehaviorRelay<String?> { get set }
     var closeModalAction: (() -> ())? { get set }
     func sumbitClient() -> ()
+    var delegate: UpdateDelegateType! { get set }
 }

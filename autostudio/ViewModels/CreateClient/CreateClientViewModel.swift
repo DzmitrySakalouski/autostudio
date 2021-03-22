@@ -11,7 +11,8 @@ import RxSwift
 
 class CreateClientViewModel: CreateClientViewModelType {
     var createClientService: CreateClientServiceType!
-    
+    var delegate: UpdateDelegateType!
+        
     var name: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     var car: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     var phoneNumber: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
@@ -59,11 +60,11 @@ class CreateClientViewModel: CreateClientViewModelType {
     }
     
     func sumbitClient() {
-        print("'SSSSSUUUUBBBB'")
         if validate() {
             guard let client = generateClient() else { return }
             createClientService.submitClient(client: client).asObservable().subscribe(onNext: {[weak self] _ in
                 self?.closeModalAction?()
+                self?.delegate.update()
             }).disposed(by: disposeBag)
         }
     }

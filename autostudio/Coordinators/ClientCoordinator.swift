@@ -44,6 +44,11 @@ class ClientCoordinator: BaseCoordinator {
             self?.removeDependency(coordinator: createClientCoordinator)
         }
         
+        createClientCoordinator.finishFlowAndUpdate = { [weak self] in
+            self?.showClientTable()
+            self?.removeDependency(coordinator: createClientCoordinator)
+        }
+        
         createClientCoordinator.start()
     }
 }

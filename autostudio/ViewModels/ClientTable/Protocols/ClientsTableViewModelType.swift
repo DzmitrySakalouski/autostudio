@@ -11,7 +11,8 @@ import RxSwift
 
 protocol ClientsTableViewModelType {
     var clientService: ClientTableServiceType { get set }
-    var clients: Observable<[Client]>? { get set }
+    var clients: BehaviorRelay<[Client]> { get set }
     var errorMsg: BehaviorRelay<String?> { get set }
     func cellViewModel(client: Client) -> ClientCellViewModel?
+    func getClients() -> Void
 }

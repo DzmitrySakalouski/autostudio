@@ -9,11 +9,16 @@ import UIKit
 import RxSwift
 
 class ClientTableViewController: UITableViewController {
-    var viewModel: ClientsTableViewModelType?
+    var viewModel: ClientsTableViewModelType? {
+        didSet {
+            viewModel?.getClients()
+            print("didSet")
+        }
+    }
     var handleAddClientPress: (() -> ())?
     
     let disposeBag = DisposeBag()
-    
+        
     var plusBarButton: UIBarButtonItem = {
         let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarPlusPress))
         btn.tintColor = .white
@@ -23,10 +28,14 @@ class ClientTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = nil
-        
         configureView()
         configureCallbacks()
     }
+    
+//    func update() {
+//        guard let viewModel = self.viewModel else { return }
+//        viewModel.getClients()
+//    }
     
     func configureView() {
         tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
@@ -48,12 +57,9 @@ class ClientTableViewController: UITableViewController {
     }
     
     func configureCallbacks() {
-        viewModel?.clients?.bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
-            print(client)
+        viewModel?.clients.asObservable().bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
             cell.viewModel = self?.viewModel?.cellViewModel(client: client)
         }.disposed(by: disposeBag)
-        
-        print("Configure")
         
         viewModel?.errorMsg.subscribe(onNext: { [weak self] value in
             guard let message = value else { return }
