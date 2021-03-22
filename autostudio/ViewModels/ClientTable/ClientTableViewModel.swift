@@ -18,7 +18,7 @@ class ClientTableViewModel: ClientsTableViewModelType {
     
     init(service: ClientTableServiceType) {
         clientService = service
-        clients = clientService.fetchClients().observe(on: MainScheduler.instance).map{$0.clients}.catch { [weak self] error in
+        clients = clientService.fetchClients()?.observe(on: MainScheduler.instance).catch { [weak self] error in
             self?.errorMsg.accept(error.localizedDescription)
             return Observable.just([Client]())
         }

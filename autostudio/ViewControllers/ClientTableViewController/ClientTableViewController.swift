@@ -56,7 +56,6 @@ class ClientTableViewController: UITableViewController {
         print("Configure")
         
         viewModel?.errorMsg.subscribe(onNext: { [weak self] value in
-            print("errormsg", value)
             guard let message = value else { return }
             self?.showEmptyMessage(message: message, viewController: self!)
         }).disposed(by: disposeBag)

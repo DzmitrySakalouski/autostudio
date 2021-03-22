@@ -8,13 +8,15 @@
 import RxSwift
 
 class ClientTableService: ClientTableServiceType {
+
+    
     var apiClient: APIClientType!
     
     init(apiClient: APIClientType) {
         self.apiClient = apiClient
     }
     
-    func fetchClients() -> Observable<ClientList> {
+    func fetchClients() -> Observable<[Client]>? {
         return apiClient.call(endpoint: ClientEndpoints.getAll.endpoint).observe(on: MainScheduler.instance)
     }
 }
