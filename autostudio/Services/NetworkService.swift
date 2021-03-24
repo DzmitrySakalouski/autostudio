@@ -56,7 +56,6 @@ class NetworkService: NetworkServiceType {
             
             guard let data = data else { return }
             print(data)
-//            if let data = data {
                 do {
                     let responseData = try JSONDecoder().decode(T.self, from: data)
                     print(responseData)
@@ -64,7 +63,6 @@ class NetworkService: NetworkServiceType {
                 } catch let error {
                     complition(.failure(error))
                 }
-//            }
         }
         
         dataTask.resume()

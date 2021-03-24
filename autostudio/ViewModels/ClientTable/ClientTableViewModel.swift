@@ -28,7 +28,7 @@ class ClientTableViewModel: ClientsTableViewModelType, UpdateDelegateType {
     }
     
     func getClients() {
-        clientService.fetchClients().observe(on: MainScheduler.instance).map{$0.clients}.subscribe(onNext: { [weak self] data in
+        clientService.fetchClients()?.observe(on: MainScheduler.instance).map{$0.clients}.subscribe(onNext: { [weak self] data in
             print(data.count)
             self?.clients.accept(data)
         }, onError: { [weak self] error in
