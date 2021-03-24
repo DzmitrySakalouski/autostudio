@@ -10,8 +10,9 @@ import RxCocoa
 import RxSwift
 
 class CreateClientViewModel: CreateClientViewModelType {
+    var didFinishCreateClient: (() -> ())?
+    
     var createClientService: CreateClientServiceType!
-    var delegate: UpdateDelegateType!
         
     var name: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     var car: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
@@ -64,7 +65,7 @@ class CreateClientViewModel: CreateClientViewModelType {
             guard let client = generateClient() else { return }
             createClientService.submitClient(client: client).asObservable().subscribe(onNext: {[weak self] _ in
                 self?.closeModalAction?()
-                self?.delegate.update()
+                self?.didFinishCreateClient?()
             }).disposed(by: disposeBag)
         }
     }

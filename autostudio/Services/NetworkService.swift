@@ -19,8 +19,8 @@ class NetworkService: NetworkServiceType {
             let jsonBody = try JSONEncoder().encode(body)
             print("JSON BODY ===>", print(String(data: jsonBody, encoding: .utf8)!))
             request.httpBody = jsonBody
-        } catch {
-            print(error)
+        } catch let error {
+            complition(.failure(error))
         }
         
         let dataTask = session.dataTask(with: request) { data, response, error in
@@ -51,18 +51,13 @@ class NetworkService: NetworkServiceType {
                 complition(.failure(error))
             }
             
-            print("data -> ", data)
-            print("ERR ->", T.self)
-            
             guard let data = data else { return }
-            print(data)
-                do {
-                    let responseData = try JSONDecoder().decode(T.self, from: data)
-                    print(responseData)
-                    complition(.success(responseData))
-                } catch let error {
-                    complition(.failure(error))
-                }
+            do {
+                let responseData = try JSONDecoder().decode(T.self, from: data)
+                complition(.success(responseData))
+            } catch let error {
+                complition(.failure(error))
+            }
         }
         
         dataTask.resume()

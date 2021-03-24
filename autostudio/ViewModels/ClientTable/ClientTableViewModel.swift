@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class ClientTableViewModel: ClientsTableViewModelType, UpdateDelegateType {
+class ClientTableViewModel: ClientsTableViewModelType {
     internal var clientService: ClientTableServiceType
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     let disposeBag = DisposeBag()
@@ -20,7 +20,6 @@ class ClientTableViewModel: ClientsTableViewModelType, UpdateDelegateType {
     
     init(service: ClientTableServiceType) {
         clientService = service
-        createClientVM?.delegate = self
     }
     
     func update() {

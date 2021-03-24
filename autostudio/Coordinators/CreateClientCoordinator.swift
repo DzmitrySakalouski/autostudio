@@ -31,8 +31,8 @@ class CreateClientCoordinator: BaseCoordinator, CoordinatorOutputType {
     func showCreateClientScreen() {
         let createClientVC = factory.makeCreateClientViewController()
         var createClientVM = container.resolve(CreateClientViewModelType.self)
-        createClientVM?.delegate = container.resolve(ClientsTableViewModelType.self) as? UpdateDelegateType
         createClientVM?.closeModalAction = finishFlow
+        createClientVM?.didFinishCreateClient = finishFlowAndUpdate
         createClientVC.viewModel = createClientVM
 
         navigator.present(module: createClientVC)

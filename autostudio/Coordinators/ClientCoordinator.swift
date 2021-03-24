@@ -13,6 +13,8 @@ class ClientCoordinator: BaseCoordinator {
     private let factory: ClientViewControllerFactoryType
     private let coordinatorFactory: CoordinatorFactoryType
     
+    var didFinishSaveClient: (() -> ())?
+    
     private var container: Container {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.container
@@ -30,8 +32,10 @@ class ClientCoordinator: BaseCoordinator {
     
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
-        clientTableVC.viewModel = container.resolve(ClientsTableViewModelType.self) as? ClientTableViewModel
+        let clientTableVM = container.resolve(ClientsTableViewModelType.self) as? ClientTableViewModel
+        clientTableVC.viewModel = clientTableVM
         clientTableVC.handleAddClientPress = runCreateClientFlow
+        self.didFinishSaveClient = clientTableVM?.getClients
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }
     
@@ -45,7 +49,8 @@ class ClientCoordinator: BaseCoordinator {
         }
         
         createClientCoordinator.finishFlowAndUpdate = { [weak self] in
-            self?.showClientTable()
+            self?.navigator.dismissModule()
+            self?.didFinishSaveClient?()
             self?.removeDependency(coordinator: createClientCoordinator)
         }
         
