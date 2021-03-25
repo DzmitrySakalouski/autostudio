@@ -33,10 +33,22 @@ class ClientCoordinator: BaseCoordinator {
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
         let clientTableVM = container.resolve(ClientsTableViewModelType.self) as? ClientTableViewModel
+        
+        clientTableVM?.didSelectRowAt = { [weak self] client in
+            self?.showClientDetails(client: client)
+        }
         clientTableVC.viewModel = clientTableVM
-        clientTableVC.handleAddClientPress = runCreateClientFlow
+        clientTableVM?.didSaveClient = runCreateClientFlow
         self.didFinishSaveClient = clientTableVM?.getClients
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
+    }
+    
+    func showClientDetails(client: Client?) {
+        let clientDetailsVC = factory.makeClientDetailsViewController()
+        var clentDetailsVM = container.resolve(ClientDetailsViewModelType.self)
+        clentDetailsVM?.client = client
+        clientDetailsVC.viewModel = clentDetailsVM
+        navigator.navigate(module: clientDetailsVC)
     }
     
     func runCreateClientFlow() {

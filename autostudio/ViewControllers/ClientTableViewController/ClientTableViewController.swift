@@ -15,7 +15,6 @@ class ClientTableViewController: UITableViewController {
             print("didSet")
         }
     }
-    var handleAddClientPress: (() -> ())?
     
     let disposeBag = DisposeBag()
         
@@ -32,11 +31,6 @@ class ClientTableViewController: UITableViewController {
         configureCallbacks()
     }
     
-//    func update() {
-//        guard let viewModel = self.viewModel else { return }
-//        viewModel.getClients()
-//    }
-    
     func configureView() {
         tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
         tableView.separatorStyle = .singleLine
@@ -45,15 +39,14 @@ class ClientTableViewController: UITableViewController {
         plusBarButton.target = self
         
         view.backgroundColor = .white
-        navigationController!.navigationBar.isTranslucent = false
-        navigationController!.navigationBar.barTintColor = .gray
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = .gray
         navigationItem.rightBarButtonItem = plusBarButton
     }
     
     @objc func handleBarPlusPress() {
-        if handleAddClientPress != nil {
-            handleAddClientPress!()
-        }
+        guard let vm = viewModel else { return }
+        vm.didSaveClient?()
     }
     
     func configureCallbacks() {
@@ -71,5 +64,10 @@ class ClientTableViewController: UITableViewController {
 extension ClientTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let vm = viewModel else { return }
+        vm.handleSelectClient(indexPath: indexPath)
     }
 }

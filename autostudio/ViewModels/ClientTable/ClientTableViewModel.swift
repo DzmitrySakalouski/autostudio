@@ -10,12 +10,12 @@ import RxCocoa
 import RxSwift
 
 class ClientTableViewModel: ClientsTableViewModelType {
+    var didSelectRowAt: ((Client) -> Void)?
+    var didSaveClient: (() -> ())?
     internal var clientService: ClientTableServiceType
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     let disposeBag = DisposeBag()
-    
     var createClientVM: CreateClientViewModel!
-    
     internal var clients: BehaviorRelay<[Client]> = BehaviorRelay<[Client]>(value: [Client]())
     
     init(service: ClientTableServiceType) {
@@ -37,6 +37,12 @@ class ClientTableViewModel: ClientsTableViewModelType {
     
     func cellViewModel(client: Client) -> ClientCellViewModel? {
         return ClientCellViewModel(client: client)
+    }
+    
+    func handleSelectClient(indexPath: IndexPath) {
+        guard let selectionHandler = didSelectRowAt else { return }
+        let selectedClient = clients.value[indexPath.row]
+        selectionHandler(selectedClient)
     }
     
 }

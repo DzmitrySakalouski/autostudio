@@ -13,6 +13,9 @@ protocol ClientsTableViewModelType {
     var clientService: ClientTableServiceType { get set }
     var clients: BehaviorRelay<[Client]> { get set }
     var errorMsg: BehaviorRelay<String?> { get set }
+    var didSaveClient: (() -> ())? { get set }
+    var didSelectRowAt: ((_ client: Client) -> Void)? { get set }
     func cellViewModel(client: Client) -> ClientCellViewModel?
     func getClients() -> Void
+    func handleSelectClient(indexPath: IndexPath) -> Void
 }

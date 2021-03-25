@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4106E003260D048B00AB9BFA /* VeilLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E002260D048B00AB9BFA /* VeilLib.swift */; };
+		4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */; };
+		4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */; };
+		4106E00F260D0F3300AB9BFA /* ClientDetailsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */; };
 		412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E125E12B89006E4749 /* AppDelegate.swift */; };
 		412E31E425E12B89006E4749 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E325E12B89006E4749 /* SceneDelegate.swift */; };
 		412E31EC25E12B89006E4749 /* autostudio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 412E31EA25E12B89006E4749 /* autostudio.xcdatamodeld */; };
@@ -63,6 +66,9 @@
 		38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.debug.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.debug.xcconfig"; sourceTree = "<group>"; };
 		3CF18673E694461148514366 /* Pods_autostudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autostudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4106E002260D048B00AB9BFA /* VeilLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeilLib.swift; sourceTree = "<group>"; };
+		4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
+		4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewModel.swift; sourceTree = "<group>"; };
+		4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewModelType.swift; sourceTree = "<group>"; };
 		412E31DE25E12B89006E4749 /* autostudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autostudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E31E125E12B89006E4749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412E31E325E12B89006E4749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +134,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4106E005260D06B800AB9BFA /* ClientDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */,
+			);
+			path = ClientDetailsViewController;
+			sourceTree = "<group>";
+		};
+		4106E009260D0CFE00AB9BFA /* ClientDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4106E00D260D0F2700AB9BFA /* Protocols */,
+				4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */,
+			);
+			path = ClientDetails;
+			sourceTree = "<group>";
+		};
+		4106E00D260D0F2700AB9BFA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		412E31D525E12B88006E4749 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +207,7 @@
 		412E31FA25E12BFF006E4749 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4106E005260D06B800AB9BFA /* ClientDetailsViewController */,
 				415D8B7725F27CA000FFAABF /* CreateClientViewController */,
 				412E321425E12D73006E4749 /* ClientTableViewController */,
 			);
@@ -338,6 +370,7 @@
 		412E326425E14E7E006E4749 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				4106E009260D0CFE00AB9BFA /* ClientDetails */,
 				4138185525FA42A000995643 /* CreateClient */,
 				412E326525E14EC0006E4749 /* ClientTable */,
 			);
@@ -629,6 +662,7 @@
 				4138184C25FA344000995643 /* TextFieldExtension.swift in Sources */,
 				41395F2026075D86001B718D /* CreateClientServiceType.swift in Sources */,
 				412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */,
+				4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */,
 				412E321625E12D8B006E4749 /* ClientTableViewController.swift in Sources */,
 				412E326125E14E33006E4749 /* Network.swift in Sources */,
 				412E322D25E1307D006E4749 /* ViewControllerFactory.swift in Sources */,
@@ -643,8 +677,10 @@
 				412E322225E12EEE006E4749 /* ClientCoordinator.swift in Sources */,
 				412E323525E13161006E4749 /* CoordinatorFactory.swift in Sources */,
 				412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */,
+				4106E00F260D0F3300AB9BFA /* ClientDetailsViewModelType.swift in Sources */,
 				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
 				4138184625FA217700995643 /* Box.swift in Sources */,
+				4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */,
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
 				4138186025FA453300995643 /* CreateClientService.swift in Sources */,
 				4138184925FA226A00995643 /* TableViewHelper.swift in Sources */,

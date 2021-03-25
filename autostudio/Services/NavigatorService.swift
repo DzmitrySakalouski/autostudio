@@ -47,7 +47,7 @@ class Navigator: NavigatorType {
     
     func navigate(module: PresentableType?, isNavBarHidden: Bool) {
         rootNavigationController?.isNavigationBarHidden = isNavBarHidden
-        navigate(module: module)
+        navigate(module: module, animated: true)
     }
     
     func navigate(module: PresentableType?, animated: Bool) {

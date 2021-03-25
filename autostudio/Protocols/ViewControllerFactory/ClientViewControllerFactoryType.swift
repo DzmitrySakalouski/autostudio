@@ -10,4 +10,5 @@ import Foundation
 protocol ClientViewControllerFactoryType {
     func makeClientViewController() -> ClientTableViewController
     func makeCreateClientViewController() -> CreateClientViewController
+    func makeClientDetailsViewController() -> ClientDetailsViewController
 }
