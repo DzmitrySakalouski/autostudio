@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4106E003260D048B00AB9BFA /* VeilLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E002260D048B00AB9BFA /* VeilLib.swift */; };
 		412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E125E12B89006E4749 /* AppDelegate.swift */; };
 		412E31E425E12B89006E4749 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E325E12B89006E4749 /* SceneDelegate.swift */; };
 		412E31EC25E12B89006E4749 /* autostudio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 412E31EA25E12B89006E4749 /* autostudio.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.debug.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.debug.xcconfig"; sourceTree = "<group>"; };
 		3CF18673E694461148514366 /* Pods_autostudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autostudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4106E002260D048B00AB9BFA /* VeilLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeilLib.swift; sourceTree = "<group>"; };
 		412E31DE25E12B89006E4749 /* autostudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autostudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E31E125E12B89006E4749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412E31E325E12B89006E4749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			children = (
 				4138184525FA217700995643 /* Box.swift */,
 				4138184825FA226A00995643 /* TableViewHelper.swift */,
+				4106E002260D048B00AB9BFA /* VeilLib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				415F12E325FFD31800854902 /* APIClient.swift in Sources */,
 				412E323125E130FA006E4749 /* CoordinatorFactoryType.swift in Sources */,
 				412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */,
+				4106E003260D048B00AB9BFA /* VeilLib.swift in Sources */,
 				4138184C25FA344000995643 /* TextFieldExtension.swift in Sources */,
 				41395F2026075D86001B718D /* CreateClientServiceType.swift in Sources */,
 				412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */,

@@ -11,6 +11,8 @@ import RxSwift
 class CreateClientViewController: UIViewController {
     let disposeBag = DisposeBag()
     var viewModel: CreateClientViewModelType!
+    
+    let mask = Veil(pattern: "+375 (##) ###-##-##")
 
     lazy var closeLabel: UILabel = {
         let label = UILabel()
@@ -39,10 +41,11 @@ class CreateClientViewController: UIViewController {
         carTF.placeholder = "Машина"
         return carTF
     }()
-    
+        
     lazy var phoneTextField: TextField = {
         let phoneTF = TextField()
         phoneTF.placeholder = "Номер Телефона"
+        phoneTF.addTarget(self, action: #selector(phoneNumberDidChange), for: .editingChanged)
         return phoneTF
     }()
     
@@ -125,6 +128,15 @@ class CreateClientViewController: UIViewController {
         }
         
         vm.sumbitClient()
+    }
+    
+    @objc func phoneNumberDidChange(_ sender: UITextField) {
+        print(sender)
+        guard let currentText = sender.text else  {
+            return
+        }
+
+        sender.text = mask.mask(input: currentText, exhaustive: false)
     }
     
     func configureSubscriptions() {
