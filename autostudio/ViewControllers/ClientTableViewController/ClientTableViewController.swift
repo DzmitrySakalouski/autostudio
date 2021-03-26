@@ -20,7 +20,7 @@ class ClientTableViewController: UITableViewController {
         
     var plusBarButton: UIBarButtonItem = {
         let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleBarPlusPress))
-        btn.tintColor = .white
+        btn.tintColor = .black
         return btn
     }()
 
@@ -29,6 +29,16 @@ class ClientTableViewController: UITableViewController {
         tableView.dataSource = nil
         configureView()
         configureCallbacks()
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
+        navigationItem.rightBarButtonItem = plusBarButton
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "Список клиентов"
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .black
     }
     
     func configureView() {
@@ -39,9 +49,6 @@ class ClientTableViewController: UITableViewController {
         plusBarButton.target = self
         
         view.backgroundColor = .white
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.barTintColor = .gray
-        navigationItem.rightBarButtonItem = plusBarButton
     }
     
     @objc func handleBarPlusPress() {

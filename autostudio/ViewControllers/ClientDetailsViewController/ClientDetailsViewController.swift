@@ -9,12 +9,6 @@ import UIKit
 
 class ClientDetailsViewController: UIViewController {
     var viewModel: ClientDetailsViewModelType!
-    
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
 
     lazy var phoneLabel: UILabel = {
         let label = UILabel()
@@ -51,11 +45,8 @@ class ClientDetailsViewController: UIViewController {
     func configureView() {
         view.backgroundColor = .white
         
-        view.addSubview(nameLabel)
-        nameLabel.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 30, paddingLeft: 10)
-        
         view.addSubview(phoneLabel)
-        phoneLabel.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 10)
+        phoneLabel.anchor(top: view.topAnchor, left: view.leftAnchor, paddingTop: 20, paddingLeft: 10)
         
         view.addSubview(carLabel)
         carLabel.anchor(top: phoneLabel.bottomAnchor, left: view.leftAnchor, paddingTop: 10, paddingLeft: 10)
@@ -75,7 +66,7 @@ class ClientDetailsViewController: UIViewController {
         guard let client = vm.client else {
             return
         }
-        nameLabel.text = client.fullName
+        navigationItem.title = client.fullName
         phoneLabel.text = client.phoneNumber
         carLabel.text = client.car
         print("Колличество заказов: \(client.offerCount!)")
@@ -86,10 +77,8 @@ class ClientDetailsViewController: UIViewController {
     }
 
     func configureNavBar() {
-        edgesForExtendedLayout = .all
-        navigationController!.navigationBar.isTranslucent = false
         navigationController?.navigationBar.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Список клиетов", style: .plain, target: nil, action: nil)
     }
 }

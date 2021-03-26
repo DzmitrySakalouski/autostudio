@@ -73,7 +73,7 @@ class CreateClientViewController: UIViewController {
     }
     
     func configureView() {
-        navigationController?.navigationBar.tintColor = .white
+//        navigationController?.navigationBar.tintColor = .white
         view.backgroundColor = .gray
         
         configureSubscriptions()
