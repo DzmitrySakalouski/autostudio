@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class ClientTableViewModel: ClientsTableViewModelType {
+class ClientTableViewModel: ClientsTableViewModelType, ClientTableViewModelDelegate {
     var didSelectRowAt: ((Client) -> Void)?
     var didSaveClient: (() -> ())?
     internal var clientService: ClientTableServiceType
@@ -22,7 +22,7 @@ class ClientTableViewModel: ClientsTableViewModelType {
         clientService = service
     }
     
-    func update() {
+    func updateTable() {
         getClients()
     }
     

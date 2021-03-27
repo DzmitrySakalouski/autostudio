@@ -30,11 +30,8 @@ class CreateClientCoordinator: BaseCoordinator, CoordinatorOutputType {
     
     func showCreateClientScreen() {
         let createClientVC = factory.makeCreateClientViewController()
-        var createClientVM = container.resolve(CreateClientViewModelType.self)
-        createClientVM?.closeModalAction = finishFlow
-        createClientVM?.didFinishCreateClient = finishFlowAndUpdate
-        createClientVC.viewModel = createClientVM
-
+        createClientVC.viewModel?.closeModalAction = finishFlow
+        createClientVC.viewModel?.didFinishCreateClient = finishFlowAndUpdate
         navigator.present(module: createClientVC)
     }
 }

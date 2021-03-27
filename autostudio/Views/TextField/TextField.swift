@@ -10,6 +10,7 @@ import UIKit
 
 class TextField: UITextField {
     private let border = UIView()
+    var borderColor: UIColor?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,12 +23,14 @@ class TextField: UITextField {
     
     private func setupUI() {
         borderStyle = .none
-        textColor = .white
-        let color: UIColor = .white
+        textColor = .black
+        let color: UIColor = .black
         self.attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [NSAttributedString.Key.foregroundColor : color])
 
         addSubview(border)
-        border.backgroundColor = .white
+        
+        border.backgroundColor = .black
+        
         border.anchor(top: bottomAnchor, left: leftAnchor, right: rightAnchor, height: 1)
         border.isUserInteractionEnabled = false
     }

@@ -12,9 +12,7 @@ class ClientCoordinator: BaseCoordinator {
     private let navigator: NavigatorType
     private let factory: ClientViewControllerFactoryType
     private let coordinatorFactory: CoordinatorFactoryType
-    
-    var didFinishSaveClient: (() -> ())?
-    
+        
     private var container: Container {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.container
@@ -32,26 +30,29 @@ class ClientCoordinator: BaseCoordinator {
     
     func showClientTable() {
         let clientTableVC = factory.makeClientViewController()
-        let clientTableVM = container.resolve(ClientsTableViewModelType.self) as? ClientTableViewModel
-        
-        clientTableVM?.didSelectRowAt = { [weak self] client in
-            self?.showClientDetails(client: client)
+        guard let delegateModel = clientTableVC.viewModel else {
+            return
         }
-        clientTableVC.viewModel = clientTableVM
-        clientTableVM?.didSaveClient = runCreateClientFlow
-        self.didFinishSaveClient = clientTableVM?.getClients
+        
+        clientTableVC.viewModel?.didSelectRowAt = { [weak self] client in
+            self?.showClientDetails(client: client, delegate: delegateModel as! ClientTableViewModelDelegate)
+        }
+        clientTableVC.viewModel?.didSaveClient = { [weak self] in
+            self?.runCreateClientFlow(didFinishCreationFlow: delegateModel.getClients) // IS THAT COORECT?
+        }
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }
     
-    func showClientDetails(client: Client?) {
-        let clientDetailsVC = factory.makeClientDetailsViewController()
-        var clentDetailsVM = container.resolve(ClientDetailsViewModelType.self)
-        clentDetailsVM?.client = client
-        clientDetailsVC.viewModel = clentDetailsVM
+    func showClientDetails(client: Client?, delegate: ClientTableViewModelDelegate) {
+        let clientDetailsVC = factory.makeClientDetailsViewController(delegate: delegate)
+        clientDetailsVC.viewModel?.client = client
+        clientDetailsVC.viewModel?.didDeleteClient = { [weak self] in
+            self?.navigator.popModule()
+        }
         navigator.navigate(module: clientDetailsVC)
     }
-    
-    func runCreateClientFlow() {
+        
+    func runCreateClientFlow(didFinishCreationFlow: (() -> ())?) {
         let createClientCoordinator = coordinatorFactory.makeCreateClientCoordinator(navigator: navigator)
         addDependency(coordinator: createClientCoordinator)
         
@@ -62,7 +63,7 @@ class ClientCoordinator: BaseCoordinator {
         
         createClientCoordinator.finishFlowAndUpdate = { [weak self] in
             self?.navigator.dismissModule()
-            self?.didFinishSaveClient?()
+            didFinishCreationFlow?()
             self?.removeDependency(coordinator: createClientCoordinator)
         }
         

@@ -27,6 +27,7 @@ class ClientTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = nil
+        tableView.separatorStyle = .none
         configureView()
         configureCallbacks()
         configureNavBar()
@@ -43,7 +44,6 @@ class ClientTableViewController: UITableViewController {
     
     func configureView() {
         tableView.register(ClientTableViewCell.self, forCellReuseIdentifier: "clientCell")
-        tableView.separatorStyle = .singleLine
         tableView.bounces = false
 
         plusBarButton.target = self

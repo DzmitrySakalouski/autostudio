@@ -5,20 +5,30 @@
 //  Created by Dzmitry  Sakalouski  on 25.03.21.
 //
 
-import Foundation
+import RxSwift
 
 class ClientDetailsViewModel: ClientDetailsViewModelType {
+    var delegate: ClientTableViewModelDelegate?
     var client: Client?
+    var clientDetailsService: ClientDetailsServiceType!
+    private let disposeBag = DisposeBag()
+    
+    var didDeleteClient: (() -> ())?
+    
+    init(clientDetailsService: ClientDetailsServiceType) {
+        self.clientDetailsService = clientDetailsService
+    }
     
     func deleteClient() {
         guard let clientId = client?.id else { return }
-        print("Client \(clientId) is removed")
+        clientDetailsService.deleteClient(clientId: clientId).asObservable().subscribe(onNext: { [weak self] message in
+            self?.didDeleteClient?()
+            self?.delegate?.updateTable()
+        }).disposed(by: disposeBag)
     }
     
     func editClient() {
         guard let clientId = client?.id else { return }
         print("Navigate to edit Client \(clientId)")
     }
-    
-    
 }

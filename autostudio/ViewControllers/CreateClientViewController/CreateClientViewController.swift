@@ -17,7 +17,7 @@ class CreateClientViewController: UIViewController {
     lazy var closeLabel: UILabel = {
         let label = UILabel()
         label.text = "Закрыть"
-        label.textColor = .white
+        label.textColor = .black
         label.isUserInteractionEnabled = true
         return label
     }()
@@ -26,24 +26,30 @@ class CreateClientViewController: UIViewController {
         let label = UILabel()
         label.text = "Создать нового клиента"
         label.font = label.font.withSize(30)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
     
     lazy var nameTextField: TextField = {
         let fullNameTF = TextField()
         fullNameTF.placeholder = "Имя"
+        fullNameTF.textColor = .black
+        fullNameTF.tintColor = .black
         return fullNameTF
     }()
     
     lazy var carTextField: UITextField = {
         let carTF = TextField()
+        carTF.textColor = .black
+        carTF.tintColor = .black
         carTF.placeholder = "Машина"
         return carTF
     }()
         
     lazy var phoneTextField: TextField = {
         let phoneTF = TextField()
+        phoneTF.textColor = .black
+        phoneTF.tintColor = .black
         phoneTF.placeholder = "Номер Телефона"
         phoneTF.addTarget(self, action: #selector(phoneNumberDidChange), for: .editingChanged)
         return phoneTF
@@ -53,8 +59,8 @@ class CreateClientViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Сохранить", for: .normal)
         button.layer.borderWidth = 1
-        button.tintColor = .white
-        button.layer.borderColor = UIColor.white.cgColor
+        button.tintColor = .black
+        button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 4
         return button
     }()
@@ -73,8 +79,7 @@ class CreateClientViewController: UIViewController {
     }
     
     func configureView() {
-//        navigationController?.navigationBar.tintColor = .white
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         
         configureSubscriptions()
         

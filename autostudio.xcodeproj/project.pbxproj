@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4101BD67260E313D00F0BA87 /* ClientDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101BD66260E313D00F0BA87 /* ClientDetailsService.swift */; };
+		4101BD6B260E315A00F0BA87 /* ClientDetailsServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4101BD6A260E315A00F0BA87 /* ClientDetailsServiceType.swift */; };
 		4106E003260D048B00AB9BFA /* VeilLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E002260D048B00AB9BFA /* VeilLib.swift */; };
 		4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */; };
 		4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */; };
@@ -59,12 +61,15 @@
 		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
 		415F12E325FFD31800854902 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12E225FFD31800854902 /* APIClient.swift */; };
 		415F12EE26012EA800854902 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12ED26012EA800854902 /* APIClientType.swift */; };
+		41F5589F260FC3AA0094DCF5 /* ClientTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38672EF39FE8120AF728FD9E /* Pods-autostudio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.debug.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.debug.xcconfig"; sourceTree = "<group>"; };
 		3CF18673E694461148514366 /* Pods_autostudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autostudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4101BD66260E313D00F0BA87 /* ClientDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsService.swift; sourceTree = "<group>"; };
+		4101BD6A260E315A00F0BA87 /* ClientDetailsServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsServiceType.swift; sourceTree = "<group>"; };
 		4106E002260D048B00AB9BFA /* VeilLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeilLib.swift; sourceTree = "<group>"; };
 		4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
 		4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
 		415F12E225FFD31800854902 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		415F12ED26012EA800854902 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
+		41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewModelDelegate.swift; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4101BD65260E312500F0BA87 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4101BD66260E313D00F0BA87 /* ClientDetailsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		4106E005260D06B800AB9BFA /* ClientDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +159,7 @@
 		4106E009260D0CFE00AB9BFA /* ClientDetails */ = {
 			isa = PBXGroup;
 			children = (
+				4101BD65260E312500F0BA87 /* Services */,
 				4106E00D260D0F2700AB9BFA /* Protocols */,
 				4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */,
 			);
@@ -155,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */,
+				4101BD6A260E315A00F0BA87 /* ClientDetailsServiceType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -217,6 +233,7 @@
 		412E31FB25E12C0C006E4749 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				41F5589D260FC39D0094DCF5 /* ClientTableViewModelDelegate */,
 				415F12EC26012E9900854902 /* APIClient */,
 				412E325325E14D4A006E4749 /* NetworkService */,
 				412E322525E12FE4006E4749 /* ViewControllerFactory */,
@@ -508,6 +525,14 @@
 			path = APIClient;
 			sourceTree = "<group>";
 		};
+		41F5589D260FC39D0094DCF5 /* ClientTableViewModelDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */,
+			);
+			path = ClientTableViewModelDelegate;
+			sourceTree = "<group>";
+		};
 		6B1B3C0C42301A01B9324E4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +671,7 @@
 				4138185C25FA430B00995643 /* CreateClientViewModelType.swift in Sources */,
 				412E325825E14DAF006E4749 /* EndpointType.swift in Sources */,
 				414F95E125FE3AC400911383 /* CreateClientCoordinator.swift in Sources */,
+				41F5589F260FC3AA0094DCF5 /* ClientTableViewModelDelegate.swift in Sources */,
 				412E323D25E134CF006E4749 /* ViewControllerExt.swift in Sources */,
 				412E31EC25E12B89006E4749 /* autostudio.xcdatamodeld in Sources */,
 				412E31FF25E12C53006E4749 /* NavigatorType.swift in Sources */,
@@ -664,6 +690,7 @@
 				412E326F25E14EF7006E4749 /* ClientTableService.swift in Sources */,
 				4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */,
 				412E321625E12D8B006E4749 /* ClientTableViewController.swift in Sources */,
+				4101BD6B260E315A00F0BA87 /* ClientDetailsServiceType.swift in Sources */,
 				412E326125E14E33006E4749 /* Network.swift in Sources */,
 				412E322D25E1307D006E4749 /* ViewControllerFactory.swift in Sources */,
 				412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */,
@@ -672,6 +699,7 @@
 				412E321B25E12DDF006E4749 /* NavigatorService.swift in Sources */,
 				412E325125E14D32006E4749 /* NetworkService.swift in Sources */,
 				412E320325E12C75006E4749 /* PresentableType.swift in Sources */,
+				4101BD67260E313D00F0BA87 /* ClientDetailsService.swift in Sources */,
 				412E327C25E150D2006E4749 /* ClientEndpoints.swift in Sources */,
 				412E31E425E12B89006E4749 /* SceneDelegate.swift in Sources */,
 				412E322225E12EEE006E4749 /* ClientCoordinator.swift in Sources */,

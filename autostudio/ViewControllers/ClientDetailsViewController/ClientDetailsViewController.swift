@@ -13,12 +13,14 @@ class ClientDetailsViewController: UIViewController {
     lazy var phoneLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = UIFont.init(name: "Gill Sans", size: 18)
         return label
     }()
     
     lazy var carLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = UIFont.init(name: "Gill Sans", size: 18)
         return label
     }()
     
@@ -26,13 +28,25 @@ class ClientDetailsViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.numberOfLines = 2
+        label.font = UIFont.init(name: "Gill Sans", size: 18)
         return label
     }()
     
     lazy var feesLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
+        label.font = UIFont.init(name: "Gill Sans", size: 18)
         return label
+    }()
+    
+    lazy var deleteButton: UIBarButtonItem = {
+        let deleteButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(handleDeleteClient))
+        return deleteButtonItem
+    }()
+    
+    lazy var editButton: UIBarButtonItem = {
+        let editButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+        return editButtonItem
     }()
 
     override func viewDidLoad() {
@@ -80,5 +94,11 @@ class ClientDetailsViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Список клиетов", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItems = [deleteButton, editButton]
+    }
+    
+    @objc func handleDeleteClient() {
+        guard let vm = viewModel else { return }
+        vm.deleteClient()
     }
 }

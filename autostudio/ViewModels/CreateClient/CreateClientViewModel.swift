@@ -61,6 +61,7 @@ class CreateClientViewModel: CreateClientViewModelType {
     }
     
     func sumbitClient() {
+        
         if validate() {
             guard let client = generateClient() else { return }
             createClientService.submitClient(client: client).asObservable().subscribe(onNext: {[weak self] _ in

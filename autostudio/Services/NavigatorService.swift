@@ -55,7 +55,9 @@ class Navigator: NavigatorType {
     }
     
     func navigate(module: PresentableType?, animated: Bool, completion: (() -> Void)?) {
-        guard let viewController = module?.toPresent(), (viewController is UINavigationController == false) else { return }
+        guard let viewController = module?.toPresent(), (viewController is UINavigationController == false) else {
+            return
+        }
         
         if let completeionHandler = completion {
             complitionHandlers[viewController] = completeionHandler
