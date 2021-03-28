@@ -11,6 +11,7 @@ protocol ClientDetailsViewModelType {
     var client: Client? { get set }
     var delegate: ClientTableViewModelDelegate? { get set }
     var didDeleteClient: (() -> ())? { get set }
+    var didPressEditClient: (() -> ())? { get set }
     func deleteClient() -> Void
     func editClient() -> Void
 }

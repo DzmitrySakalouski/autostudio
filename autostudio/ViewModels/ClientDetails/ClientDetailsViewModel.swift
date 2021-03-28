@@ -14,6 +14,7 @@ class ClientDetailsViewModel: ClientDetailsViewModelType {
     private let disposeBag = DisposeBag()
     
     var didDeleteClient: (() -> ())?
+    var didPressEditClient: (() -> ())?
     
     init(clientDetailsService: ClientDetailsServiceType) {
         self.clientDetailsService = clientDetailsService
@@ -28,7 +29,6 @@ class ClientDetailsViewModel: ClientDetailsViewModelType {
     }
     
     func editClient() {
-        guard let clientId = client?.id else { return }
-        print("Navigate to edit Client \(clientId)")
+        didPressEditClient?()
     }
 }

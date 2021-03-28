@@ -12,11 +12,6 @@ class ClientCoordinator: BaseCoordinator {
     private let navigator: NavigatorType
     private let factory: ClientViewControllerFactoryType
     private let coordinatorFactory: CoordinatorFactoryType
-        
-    private var container: Container {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.container
-    }
          
     init(factory: ClientViewControllerFactoryType, navigator: NavigatorType, coordinatorFactory: CoordinatorFactoryType) {
         self.navigator = navigator
@@ -38,7 +33,7 @@ class ClientCoordinator: BaseCoordinator {
             self?.showClientDetails(client: client, delegate: delegateModel as! ClientTableViewModelDelegate)
         }
         clientTableVC.viewModel?.didSaveClient = { [weak self] in
-            self?.runCreateClientFlow(didFinishCreationFlow: delegateModel.getClients) // IS THAT COORECT?
+            self?.runCreateClientFlow(didFinishCreationFlow: delegateModel.getClients)
         }
         navigator.setRootModule(module: clientTableVC, hideNavBar: false)
     }
@@ -49,7 +44,18 @@ class ClientCoordinator: BaseCoordinator {
         clientDetailsVC.viewModel?.didDeleteClient = { [weak self] in
             self?.navigator.popModule()
         }
+        
+        clientDetailsVC.viewModel?.didPressEditClient = { [weak self] in
+            self?.showEditClientScreen(client: client, delegate: delegate)
+        }
+        
         navigator.navigate(module: clientDetailsVC)
+    }
+    
+    func showEditClientScreen(client: Client?, delegate: ClientTableViewModelDelegate) {
+        guard let clientToUpdate = client else { return }
+        let editClientVC = factory.makeEditClientViewController(client: clientToUpdate, delegate: delegate)
+        navigator.navigate(module: editClientVC)
     }
         
     func runCreateClientFlow(didFinishCreationFlow: (() -> ())?) {

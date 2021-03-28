@@ -49,7 +49,6 @@
 		412E328525E173A9006E4749 /* ClientCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328425E173A9006E4749 /* ClientCellViewModelType.swift */; };
 		412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E328925E17432006E4749 /* ClientTableViewCell.swift */; };
 		412E329925E57280006E4749 /* Natural.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 412E329825E57280006E4749 /* Natural.ttf */; };
-		4138184625FA217700995643 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184525FA217700995643 /* Box.swift */; };
 		4138184925FA226A00995643 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184825FA226A00995643 /* TableViewHelper.swift */; };
 		4138184C25FA344000995643 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184B25FA344000995643 /* TextFieldExtension.swift */; };
 		4138185025FA3E8E00995643 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4138184F25FA3E8E00995643 /* TextField.swift */; };
@@ -62,6 +61,10 @@
 		415F12E325FFD31800854902 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12E225FFD31800854902 /* APIClient.swift */; };
 		415F12EE26012EA800854902 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12ED26012EA800854902 /* APIClientType.swift */; };
 		41F5589F260FC3AA0094DCF5 /* ClientTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */; };
+		41F558AA261079280094DCF5 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558A9261079280094DCF5 /* EditClientViewController.swift */; };
+		41F558AF261084560094DCF5 /* EditClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558AE261084560094DCF5 /* EditClientViewModel.swift */; };
+		41F558B5261084990094DCF5 /* EditClientViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558B4261084990094DCF5 /* EditClientViewModelType.swift */; };
+		41F558C22610AF570094DCF5 /* TextFieldBinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558C12610AF570094DCF5 /* TextFieldBinder.swift */; };
 		50917EDBE6BA545A057F73C2 /* Pods_autostudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF18673E694461148514366 /* Pods_autostudio.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,7 +115,6 @@
 		412E328425E173A9006E4749 /* ClientCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCellViewModelType.swift; sourceTree = "<group>"; };
 		412E328925E17432006E4749 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		412E329825E57280006E4749 /* Natural.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Natural.ttf; sourceTree = "<group>"; };
-		4138184525FA217700995643 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		4138184825FA226A00995643 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		4138184B25FA344000995643 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtension.swift; sourceTree = "<group>"; };
 		4138184F25FA3E8E00995643 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
@@ -125,6 +127,10 @@
 		415F12E225FFD31800854902 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		415F12ED26012EA800854902 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
 		41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewModelDelegate.swift; sourceTree = "<group>"; };
+		41F558A9261079280094DCF5 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
+		41F558AE261084560094DCF5 /* EditClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewModel.swift; sourceTree = "<group>"; };
+		41F558B4261084990094DCF5 /* EditClientViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewModelType.swift; sourceTree = "<group>"; };
+		41F558C12610AF570094DCF5 /* TextFieldBinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBinder.swift; sourceTree = "<group>"; };
 		70FB570DDCDBA65354363F01 /* Pods-autostudio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autostudio.release.xcconfig"; path = "Target Support Files/Pods-autostudio/Pods-autostudio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +229,7 @@
 		412E31FA25E12BFF006E4749 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				41F558A2261078D80094DCF5 /* EditClientViewController */,
 				4106E005260D06B800AB9BFA /* ClientDetailsViewController */,
 				415D8B7725F27CA000FFAABF /* CreateClientViewController */,
 				412E321425E12D73006E4749 /* ClientTableViewController */,
@@ -387,6 +394,7 @@
 		412E326425E14E7E006E4749 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				41F558AD261084410094DCF5 /* EditClient */,
 				4106E009260D0CFE00AB9BFA /* ClientDetails */,
 				4138185525FA42A000995643 /* CreateClient */,
 				412E326525E14EC0006E4749 /* ClientTable */,
@@ -467,8 +475,8 @@
 		4138184425FA216500995643 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				4138184525FA217700995643 /* Box.swift */,
 				4138184825FA226A00995643 /* TableViewHelper.swift */,
+				41F558C12610AF570094DCF5 /* TextFieldBinder.swift */,
 				4106E002260D048B00AB9BFA /* VeilLib.swift */,
 			);
 			path = Helpers;
@@ -531,6 +539,39 @@
 				41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */,
 			);
 			path = ClientTableViewModelDelegate;
+			sourceTree = "<group>";
+		};
+		41F558A2261078D80094DCF5 /* EditClientViewController */ = {
+			isa = PBXGroup;
+			children = (
+				41F558A9261079280094DCF5 /* EditClientViewController.swift */,
+			);
+			path = EditClientViewController;
+			sourceTree = "<group>";
+		};
+		41F558AD261084410094DCF5 /* EditClient */ = {
+			isa = PBXGroup;
+			children = (
+				41F558B2261084690094DCF5 /* Services */,
+				41F558B3261084720094DCF5 /* Protocols */,
+				41F558AE261084560094DCF5 /* EditClientViewModel.swift */,
+			);
+			path = EditClient;
+			sourceTree = "<group>";
+		};
+		41F558B2261084690094DCF5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		41F558B3261084720094DCF5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41F558B4261084990094DCF5 /* EditClientViewModelType.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		6B1B3C0C42301A01B9324E4A /* Pods */ = {
@@ -665,6 +706,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				412E320825E12CDA006E4749 /* CoordinatorType.swift in Sources */,
+				41F558C22610AF570094DCF5 /* TextFieldBinder.swift in Sources */,
+				41F558B5261084990094DCF5 /* EditClientViewModelType.swift in Sources */,
 				415F12EE26012EA800854902 /* APIClientType.swift in Sources */,
 				412E327725E1509F006E4749 /* Endpoint.swift in Sources */,
 				4138185725FA42BC00995643 /* CreateClientViewModel.swift in Sources */,
@@ -681,6 +724,7 @@
 				412E323925E13297006E4749 /* ApplicationCoordinator.swift in Sources */,
 				412E328A25E17432006E4749 /* ClientTableViewCell.swift in Sources */,
 				4138185025FA3E8E00995643 /* TextField.swift in Sources */,
+				41F558AF261084560094DCF5 /* EditClientViewModel.swift in Sources */,
 				415F12E325FFD31800854902 /* APIClient.swift in Sources */,
 				412E323125E130FA006E4749 /* CoordinatorFactoryType.swift in Sources */,
 				412E325C25E14DE7006E4749 /* HTTPMethods.swift in Sources */,
@@ -691,6 +735,7 @@
 				4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */,
 				412E321625E12D8B006E4749 /* ClientTableViewController.swift in Sources */,
 				4101BD6B260E315A00F0BA87 /* ClientDetailsServiceType.swift in Sources */,
+				41F558AA261079280094DCF5 /* EditClientViewController.swift in Sources */,
 				412E326125E14E33006E4749 /* Network.swift in Sources */,
 				412E322D25E1307D006E4749 /* ViewControllerFactory.swift in Sources */,
 				412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */,
@@ -707,7 +752,6 @@
 				412E325525E14D66006E4749 /* NetworkServiceType.swift in Sources */,
 				4106E00F260D0F3300AB9BFA /* ClientDetailsViewModelType.swift in Sources */,
 				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
-				4138184625FA217700995643 /* Box.swift in Sources */,
 				4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */,
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
 				4138186025FA453300995643 /* CreateClientService.swift in Sources */,

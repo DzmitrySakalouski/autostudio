@@ -36,7 +36,7 @@ class ClientTableViewController: UITableViewController {
     func configureNavBar() {
         navigationItem.rightBarButtonItem = plusBarButton
         navigationController?.navigationBar.isTranslucent = false
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Список клиентов"
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .black

@@ -11,4 +11,5 @@ protocol ClientViewControllerFactoryType {
     func makeClientViewController() -> ClientTableViewController
     func makeCreateClientViewController() -> CreateClientViewController
     func makeClientDetailsViewController(delegate: ClientTableViewModelDelegate) -> ClientDetailsViewController
+    func makeEditClientViewController(client: Client, delegate: ClientTableViewModelDelegate) -> EditClientViewController
 }

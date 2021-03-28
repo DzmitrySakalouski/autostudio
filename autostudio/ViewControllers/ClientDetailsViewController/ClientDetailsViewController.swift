@@ -45,7 +45,7 @@ class ClientDetailsViewController: UIViewController {
     }()
     
     lazy var editButton: UIBarButtonItem = {
-        let editButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
+        let editButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(handleEditClientPress))
         return editButtonItem
     }()
 
@@ -92,6 +92,7 @@ class ClientDetailsViewController: UIViewController {
 
     func configureNavBar() {
         navigationController?.navigationBar.backgroundColor = .white
+        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Список клиетов", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItems = [deleteButton, editButton]
@@ -100,5 +101,10 @@ class ClientDetailsViewController: UIViewController {
     @objc func handleDeleteClient() {
         guard let vm = viewModel else { return }
         vm.deleteClient()
+    }
+    
+    @objc func handleEditClientPress() {
+        guard let vm = viewModel else { return }
+        vm.editClient()
     }
 }
