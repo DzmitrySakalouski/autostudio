@@ -9,6 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+infix operator <->: DefaultPrecedence
+
 class EditClientViewController: UIViewController {
     let mask = Veil(pattern: "+375 (##) ###-##-##")
     let disposeBag = DisposeBag()

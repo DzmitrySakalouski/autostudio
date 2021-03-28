@@ -57,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         container.register(ClientDetailsViewModelType.self, factory: {r in return
             ClientDetailsViewModel(clientDetailsService: r.resolve(ClientDetailsServiceType.self)!)
         })
+        
+        container.register(EditClientViewModelType.self, factory: {_ in return EditClientViewModel()})
     }
     
 

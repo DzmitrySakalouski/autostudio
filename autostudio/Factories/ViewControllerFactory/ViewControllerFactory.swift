@@ -9,6 +9,14 @@ import Swinject
 import UIKit
 
 class ViewControllerFactory: ClientViewControllerFactoryType {
+    func makeEditClientViewController(client: Client, delegate: ClientTableViewModelDelegate) -> EditClientViewController {
+        let editClientViewController = EditClientViewController()
+        var editClientVM = container.resolve(EditClientViewModelType.self)!
+        editClientVM.didPressSave = delegate.updateTable
+        return editClientViewController
+    }
+    
+    
     private var container: Container {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.container

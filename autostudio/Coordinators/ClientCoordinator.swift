@@ -12,6 +12,11 @@ class ClientCoordinator: BaseCoordinator {
     private let navigator: NavigatorType
     private let factory: ClientViewControllerFactoryType
     private let coordinatorFactory: CoordinatorFactoryType
+    
+    private var container: Container {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.container
+    }
          
     init(factory: ClientViewControllerFactoryType, navigator: NavigatorType, coordinatorFactory: CoordinatorFactoryType) {
         self.navigator = navigator
@@ -55,6 +60,9 @@ class ClientCoordinator: BaseCoordinator {
     func showEditClientScreen(client: Client?, delegate: ClientTableViewModelDelegate) {
         guard let clientToUpdate = client else { return }
         let editClientVC = factory.makeEditClientViewController(client: clientToUpdate, delegate: delegate)
+        var editClientVM = container.resolve(EditClientViewModelType.self)
+        editClientVM?.client = client
+        editClientVC.viewModel = editClientVM
         navigator.navigate(module: editClientVC)
     }
         
