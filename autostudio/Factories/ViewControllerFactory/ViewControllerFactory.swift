@@ -11,8 +11,6 @@ import UIKit
 class ViewControllerFactory: ClientViewControllerFactoryType {
     func makeEditClientViewController(client: Client, delegate: ClientTableViewModelDelegate) -> EditClientViewController {
         let editClientViewController = EditClientViewController()
-        var editClientVM = container.resolve(EditClientViewModelType.self)!
-        editClientVM.didPressSave = delegate.updateTable
         return editClientViewController
     }
     
@@ -24,23 +22,16 @@ class ViewControllerFactory: ClientViewControllerFactoryType {
     
     func makeClientViewController() -> ClientTableViewController {
         let clientViewController = ClientTableViewController()
-        let clientTableViewModel = container.resolve(ClientsTableViewModelType.self)
-        clientViewController.viewModel = clientTableViewModel
         return clientViewController
     }
     
     func makeCreateClientViewController() -> CreateClientViewController {
         let createClientViewController = CreateClientViewController()
-        let createClientViewmodel = container.resolve(CreateClientViewModelType.self)
-        createClientViewController.viewModel = createClientViewmodel
         return createClientViewController
     }
     
     func makeClientDetailsViewController(delegate: ClientTableViewModelDelegate) -> ClientDetailsViewController {
         let clientDetailsViewController = ClientDetailsViewController()
-        var clientDetailsViewModel = container.resolve(ClientDetailsViewModelType.self)
-        clientDetailsViewModel?.delegate = delegate
-        clientDetailsViewController.viewModel = clientDetailsViewModel
         return clientDetailsViewController
     }
 }

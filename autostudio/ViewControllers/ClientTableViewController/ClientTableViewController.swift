@@ -57,7 +57,7 @@ class ClientTableViewController: UITableViewController {
     }
     
     func configureCallbacks() {
-        viewModel?.clients.asObservable().bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
+        viewModel?.retrieveClients().asObservable().bind(to: tableView.rx.items(cellIdentifier: "clientCell", cellType: ClientTableViewCell.self)) { [weak self] (index, client, cell) in
             cell.viewModel = self?.viewModel?.cellViewModel(client: client)
         }.disposed(by: disposeBag)
         

@@ -12,27 +12,25 @@ import RxSwift
 class ClientTableViewModel: ClientsTableViewModelType, ClientTableViewModelDelegate {
     var didSelectRowAt: ((Client) -> Void)?
     var didSaveClient: (() -> ())?
-    internal var clientService: ClientTableServiceType
+    internal var clientService: ClientServiceType
     var errorMsg: BehaviorRelay<String?> = BehaviorRelay<String?>(value: nil)
     let disposeBag = DisposeBag()
     var createClientVM: CreateClientViewModel!
-    internal var clients: BehaviorRelay<[Client]> = BehaviorRelay<[Client]>(value: [Client]())
-    
-    init(service: ClientTableServiceType) {
+        
+    init(service: ClientServiceType) {
         clientService = service
     }
     
-    func updateTable() {
-        getClients()
+    internal func retrieveClients() -> BehaviorRelay<[Client]> {
+        return clientService.clients
     }
     
-    func getClients() {
-        clientService.fetchClients()?.observe(on: MainScheduler.instance).map{$0.clients}.subscribe(onNext: { [weak self] data in
-            print(data.count)
-            self?.clients.accept(data)
-        }, onError: { [weak self] error in
-            self?.errorMsg.accept(error.localizedDescription)
-        }).disposed(by: disposeBag)
+    func updateTable() {
+        getClients() // TODO: remove
+    }
+    
+    internal func getClients() {
+        clientService.getClients()
     }
     
     func cellViewModel(client: Client) -> ClientCellViewModel? {
@@ -41,7 +39,7 @@ class ClientTableViewModel: ClientsTableViewModelType, ClientTableViewModelDeleg
     
     func handleSelectClient(indexPath: IndexPath) {
         guard let selectionHandler = didSelectRowAt else { return }
-        let selectedClient = clients.value[indexPath.row]
+        let selectedClient = retrieveClients().value[indexPath.row]
         selectionHandler(selectedClient)
     }
     

@@ -42,7 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return APIClient(networkService: r.resolve(NetworkServiceType.self)!)})
         
         container.register(ClientTableServiceType.self, factory: {r in return ClientTableService(apiClient: r.resolve(APIClientType.self)!)})
-        container.register(ClientsTableViewModelType.self, factory: {r in return ClientTableViewModel(service: r.resolve(ClientTableServiceType.self)!)})
+        
+        
+        
+        container.register(ClientsTableViewModelType.self, factory: {r in return ClientTableViewModel(service: r.resolve(ClientServiceType.self)!)}).inObjectScope(.container)
+        
+        
+        
         
         container.register(CreateClientServiceType.self, factory: { r in
             return CreateClientService(apiClient: r.resolve(APIClientType.self)!)
@@ -59,6 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         container.register(EditClientViewModelType.self, factory: {_ in return EditClientViewModel()})
+        
+        container.register(ClientServiceType.self, factory: {r in
+            return ClientService(apiClient: r.resolve(APIClientType.self)!)
+        }).inObjectScope(.container)
     }
     
 

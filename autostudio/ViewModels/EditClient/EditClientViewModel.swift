@@ -27,6 +27,7 @@ class EditClientViewModel: EditClientViewModelType {
     func handleSaveClient() {
         let client = getUpdatedClient()
         print(client)
+        didPressSave?()
     }
     
     func getUpdatedClient() -> Client {

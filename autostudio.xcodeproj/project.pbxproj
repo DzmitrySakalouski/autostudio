@@ -13,6 +13,8 @@
 		4106E007260D06F700AB9BFA /* ClientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */; };
 		4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */; };
 		4106E00F260D0F3300AB9BFA /* ClientDetailsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */; };
+		4109E885261255A10036377D /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109E884261255A10036377D /* ClientService.swift */; };
+		4109E889261258590036377D /* ClientServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4109E888261258590036377D /* ClientServiceType.swift */; };
 		412E31E225E12B89006E4749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E125E12B89006E4749 /* AppDelegate.swift */; };
 		412E31E425E12B89006E4749 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E31E325E12B89006E4749 /* SceneDelegate.swift */; };
 		412E31EC25E12B89006E4749 /* autostudio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 412E31EA25E12B89006E4749 /* autostudio.xcdatamodeld */; };
@@ -60,6 +62,7 @@
 		415D8B7925F27CCA00FFAABF /* CreateClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */; };
 		415F12E325FFD31800854902 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12E225FFD31800854902 /* APIClient.swift */; };
 		415F12EE26012EA800854902 /* APIClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415F12ED26012EA800854902 /* APIClientType.swift */; };
+		41D8FC46261251940025F348 /* EditClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D8FC45261251940025F348 /* EditClientService.swift */; };
 		41F5589F260FC3AA0094DCF5 /* ClientTableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */; };
 		41F558AA261079280094DCF5 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558A9261079280094DCF5 /* EditClientViewController.swift */; };
 		41F558AF261084560094DCF5 /* EditClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F558AE261084560094DCF5 /* EditClientViewModel.swift */; };
@@ -77,6 +80,8 @@
 		4106E006260D06F700AB9BFA /* ClientDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewController.swift; sourceTree = "<group>"; };
 		4106E00A260D0D1900AB9BFA /* ClientDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewModel.swift; sourceTree = "<group>"; };
 		4106E00E260D0F3300AB9BFA /* ClientDetailsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailsViewModelType.swift; sourceTree = "<group>"; };
+		4109E884261255A10036377D /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
+		4109E888261258590036377D /* ClientServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceType.swift; sourceTree = "<group>"; };
 		412E31DE25E12B89006E4749 /* autostudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autostudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		412E31E125E12B89006E4749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		412E31E325E12B89006E4749 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		415D8B7825F27CCA00FFAABF /* CreateClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClientViewController.swift; sourceTree = "<group>"; };
 		415F12E225FFD31800854902 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		415F12ED26012EA800854902 /* APIClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientType.swift; sourceTree = "<group>"; };
+		41D8FC45261251940025F348 /* EditClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientService.swift; sourceTree = "<group>"; };
 		41F5589E260FC3A90094DCF5 /* ClientTableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewModelDelegate.swift; sourceTree = "<group>"; };
 		41F558A9261079280094DCF5 /* EditClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		41F558AE261084560094DCF5 /* EditClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClientViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +185,14 @@
 				4101BD6A260E315A00F0BA87 /* ClientDetailsServiceType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		4109E8872612584D0036377D /* ClientService */ = {
+			isa = PBXGroup;
+			children = (
+				4109E888261258590036377D /* ClientServiceType.swift */,
+			);
+			path = ClientService;
 			sourceTree = "<group>";
 		};
 		412E31D525E12B88006E4749 = {
@@ -240,6 +254,7 @@
 		412E31FB25E12C0C006E4749 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4109E8872612584D0036377D /* ClientService */,
 				41F5589D260FC39D0094DCF5 /* ClientTableViewModelDelegate */,
 				415F12EC26012E9900854902 /* APIClient */,
 				412E325325E14D4A006E4749 /* NetworkService */,
@@ -302,6 +317,7 @@
 				412E321D25E12E9C006E4749 /* BaseCoordinator.swift */,
 				412E325025E14D32006E4749 /* NetworkService.swift */,
 				415F12E225FFD31800854902 /* APIClient.swift */,
+				4109E884261255A10036377D /* ClientService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -562,6 +578,7 @@
 		41F558B2261084690094DCF5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				41D8FC45261251940025F348 /* EditClientService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -711,8 +728,10 @@
 				415F12EE26012EA800854902 /* APIClientType.swift in Sources */,
 				412E327725E1509F006E4749 /* Endpoint.swift in Sources */,
 				4138185725FA42BC00995643 /* CreateClientViewModel.swift in Sources */,
+				4109E889261258590036377D /* ClientServiceType.swift in Sources */,
 				4138185C25FA430B00995643 /* CreateClientViewModelType.swift in Sources */,
 				412E325825E14DAF006E4749 /* EndpointType.swift in Sources */,
+				41D8FC46261251940025F348 /* EditClientService.swift in Sources */,
 				414F95E125FE3AC400911383 /* CreateClientCoordinator.swift in Sources */,
 				41F5589F260FC3AA0094DCF5 /* ClientTableViewModelDelegate.swift in Sources */,
 				412E323D25E134CF006E4749 /* ViewControllerExt.swift in Sources */,
@@ -754,6 +773,7 @@
 				412E327325E14F17006E4749 /* ClientTableServiceType.swift in Sources */,
 				4106E00B260D0D1900AB9BFA /* ClientDetailsViewModel.swift in Sources */,
 				412E324E25E14615006E4749 /* Client.swift in Sources */,
+				4109E885261255A10036377D /* ClientService.swift in Sources */,
 				4138186025FA453300995643 /* CreateClientService.swift in Sources */,
 				4138184925FA226A00995643 /* TableViewHelper.swift in Sources */,
 				412E327F25E171E3006E4749 /* ClientsTableViewModelType.swift in Sources */,

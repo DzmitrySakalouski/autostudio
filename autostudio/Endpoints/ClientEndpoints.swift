@@ -9,7 +9,7 @@ import Foundation
 
 enum ClientEndpoints {
     case getAll
-    case updateClient(id: Int)
+    case updateClient
     case deleteClient(id: Int)
     case createClient
     
@@ -22,9 +22,8 @@ enum ClientEndpoints {
         case .deleteClient(let id):
             let params = [URLQueryItem(name: "clientId", value: String(describing: id))]
             return Endpoint(path: "/api/clients", parameters: getParameters(params), method: .delete)
-        case .updateClient(let id):
-            let params = [URLQueryItem(name: "clientId", value: String(describing: id))]
-            return Endpoint(path: "/api/clients", parameters: getParameters(params), method: .delete)
+        case .updateClient:
+            return Endpoint(path: "/api/clients", parameters: getParameters([]), method: .post)
         }
     }
     
